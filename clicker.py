@@ -3,9 +3,13 @@ import time
 
 level = 1
 coins = 0
-hp = 50
+max_hp = 50
+current_hp = 50
 attack = 1
 auto_attack = 0
+upgrade_lvl = 1
+upgrade_cost = 3
+damage = 1
 
 root = tk.Tk()
 root.title("Cat Wars")
@@ -22,29 +26,33 @@ lvl_5 = tk.PhotoImage(file="1.png")
 
 def update():
     lvl_label.config(text=f"Lvl:{level}")
-    hp_label.config(text=f"HP:{hp}")
+    hp_label.config(text=f"HP:{current_hp}")
     coins_label.config(text=f"Coins:{coins}")
+    upgrade_button.config(text=f"Upgrade Cost: " + str(upgrade_cost), command=upgrade_click)
 
 
 def death():
     global level
-    global hp
+    global current_hp
     global coins
-    coins += 3 * level
+    global max_hp
+    coins += 4 * level
     level += 1
     if level == 2:
         click_button.config(image=lvl_2)
     elif level == 3:
         click_button.config(image=lvl_3)
-    hp = 50 * level
+    max_hp *= 2
+    current_hp = max_hp * level
 
 
 def click():
-    global hp
+    global current_hp
     global level
-    hp -= 1
-    print(hp)
-    if hp <= 0:
+    global damage
+    current_hp -= damage
+    print(current_hp)
+    if current_hp <= 0:
         death()
     update()
 
@@ -57,9 +65,20 @@ def autoclick():
     else:
         auto_attack = 1
         print("АвтоКликер Включен")
-    while auto_attack == 1:
-        click()
-        time.sleep(1)
+
+
+def upgrade_click():
+    global coins
+    global upgrade_lvl
+    global upgrade_cost
+    global damage
+    if coins >= upgrade_cost:
+        coins -= upgrade_cost
+        upgrade_lvl += 1
+        upgrade_cost += 3 * upgrade_lvl
+        damage *= upgrade_lvl
+    print("Damage: " + str(damage))
+    update()
 
 
 title = tk.Label(font=("Arial", 25, "bold"), text="Cat Wars", fg="orange")
@@ -70,9 +89,11 @@ coins_label = tk.Label(font=("Arial", 14), text=f"Coins: {coins}", fg="gold", bg
 coins_label.pack()
 click_button = tk.Button(root, image=lvl_1, command=click)
 click_button.pack()
-auto_click_button = tk.Button(height=5, width=10, command=autoclick)
+auto_click_button = tk.Button(text="Autoclicker", command=autoclick)
 auto_click_button.pack()
-hp_label = tk.Label(font=("Arial", 14), text=f"HP: {hp}", fg="red")
+upgrade_button = tk.Button(text="Upgrade Cost: " + str(upgrade_cost), command=upgrade_click)
+upgrade_button.pack()
+hp_label = tk.Label(font=("Arial", 14), text=f"HP: {current_hp}", fg="red")
 hp_label.pack()
 
 root.mainloop()
