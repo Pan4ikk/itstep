@@ -20,8 +20,8 @@ root.resizable(False, False)
 lvl_1 = tk.PhotoImage(file="1.png")
 lvl_2 = tk.PhotoImage(file="2.png")
 lvl_3 = tk.PhotoImage(file="3.png")
-lvl_4 = tk.PhotoImage(file="1.png")
-lvl_5 = tk.PhotoImage(file="1.png")
+lvl_4 = tk.PhotoImage(file="4.png")
+lvl_5 = tk.PhotoImage(file="5.png")
 
 
 def update():
@@ -42,6 +42,10 @@ def death():
         click_button.config(image=lvl_2)
     elif level == 3:
         click_button.config(image=lvl_3)
+    elif level == 4:
+        click_button.config(image=lvl_4)
+    elif level == 5:
+        click_button.config(image=lvl_5)
     max_hp *= 2
     current_hp = max_hp * level
 
@@ -73,13 +77,15 @@ def upgrade_click():
 
 def autoclick():
     global auto_attack
+    global auto_click_button
     if auto_attack:
         auto_attack = 0
         print("АвтоКликер Отключен")
+        auto_click_button.config(text="Autoclicker off")
     else:
         auto_attack = 1
         print("АвтоКликер Включен")
-
+        auto_click_button.config(text="Autoclicker on")
 
 title = tk.Label(font=("Arial", 25, "bold"), text="Cat Wars", fg="orange")
 title.pack()
@@ -89,7 +95,7 @@ coins_label = tk.Label(font=("Arial", 14), text=f"Coins: {coins}", fg="gold", bg
 coins_label.pack()
 click_button = tk.Button(root, image=lvl_1, command=click)
 click_button.pack()
-auto_click_button = tk.Button(text="Autoclicker", command=autoclick)
+auto_click_button = tk.Button(root, text="Autoclicker off", command=autoclick)
 auto_click_button.pack()
 upgrade_button = tk.Button(text="Upgrade Cost: " + str(upgrade_cost), command=upgrade_click)
 upgrade_button.pack()
