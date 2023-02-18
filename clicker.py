@@ -1,10 +1,13 @@
 import tkinter as tk
+import time
+import itertools
+from itertools import repeat
 
 level = 1
 coins = 0
 hp = 50
 attack = 1
-auto_attack = 0
+auto_attack = False
 
 root = tk.Tk()
 root.title("Cat Wars")
@@ -37,6 +40,7 @@ def death():
 
 
 def click():
+    global auto_attack
     global hp
     global level
     hp -= 1
@@ -45,16 +49,33 @@ def click():
         death()
     update()
 
+def autoclick():
+    global auto_attack
+    if auto_attack:
+        auto_attack = False
+        print("АвтоКликер Отключен")
+    else:
+        auto_attack = True
+        print("АвтоКликер Включен")
+    if auto_attack == True:
+        click()
+        time.sleep(1)
+
+
+
 title = tk.Label(font = ("Arial", 25, "bold"), text="Cat Wars", fg = "orange")
 title.pack()
 lvl_label = tk.Label(font = ("Arial", 14), text=f"Lvl {level}")
 lvl_label.pack()
 coins_label = tk.Label(font = ("Arial", 14), text=f"Coins: {coins}", fg="gold", bg="gray")
 coins_label.pack()
-
 click_button = tk.Button(root, image=lvl_1, command=click)
 click_button.pack()
+
+auto_click_button = tk.Button(root, height= 5, width=10, command=autoclick)
+auto_click_button.pack()
 hp_label = tk.Label(font = ("Arial", 14), text=f"HP: {hp}", fg="red")
 hp_label.pack()
 
 root.mainloop()
+
