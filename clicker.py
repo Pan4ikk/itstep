@@ -57,16 +57,6 @@ def click():
     update()
 
 
-def autoclick():
-    global auto_attack
-    if auto_attack:
-        auto_attack = 0
-        print("АвтоКликер Отключен")
-    else:
-        auto_attack = 1
-        print("АвтоКликер Включен")
-
-
 def upgrade_click():
     global coins
     global upgrade_lvl
@@ -79,6 +69,16 @@ def upgrade_click():
         damage *= upgrade_lvl
     print("Damage: " + str(damage))
     update()
+
+
+def autoclick():
+    global auto_attack
+    if auto_attack:
+        auto_attack = 0
+        print("АвтоКликер Отключен")
+    else:
+        auto_attack = 1
+        print("АвтоКликер Включен")
 
 
 title = tk.Label(font=("Arial", 25, "bold"), text="Cat Wars", fg="orange")
