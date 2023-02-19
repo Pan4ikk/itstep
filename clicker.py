@@ -17,11 +17,7 @@ root.geometry("600x800")
 # root.iconbitmap(like.ico)
 root.resizable(False, False)
 
-lvl_1 = tk.PhotoImage(file="1.png")
-lvl_2 = tk.PhotoImage(file="2.png")
-lvl_3 = tk.PhotoImage(file="3.png")
-lvl_4 = tk.PhotoImage(file="4.png")
-lvl_5 = tk.PhotoImage(file="5.png")
+M_Images = [tk.PhotoImage(file="1.png"), tk.PhotoImage(file="2.png"), tk.PhotoImage(file="3.png"), tk.PhotoImage(file="4.png"), tk.PhotoImage(file="5.png")]
 
 
 def update():
@@ -38,14 +34,7 @@ def death():
     global max_hp
     coins += 4 * level
     level += 1
-    if level == 2:
-        click_button.config(image=lvl_2)
-    elif level == 3:
-        click_button.config(image=lvl_3)
-    elif level == 4:
-        click_button.config(image=lvl_4)
-    elif level == 5:
-        click_button.config(image=lvl_5)
+    click_button.config(image=M_Images[level-1])
     max_hp *= 2
     current_hp = max_hp * level
 
@@ -93,7 +82,7 @@ lvl_label = tk.Label(font=("Arial", 14), text=f"Lvl {level}")
 lvl_label.pack()
 coins_label = tk.Label(font=("Arial", 14), text=f"Coins: {coins}", fg="gold", bg="gray")
 coins_label.pack()
-click_button = tk.Button(root, image=lvl_1, command=click)
+click_button = tk.Button(root, image=M_Images[level-1], command=click)
 click_button.pack()
 auto_click_button = tk.Button(root, text="Autoclicker off", command=autoclick)
 auto_click_button.pack()
