@@ -1,5 +1,4 @@
 import tkinter as tk
-import time
 
 level = 1
 coins = 0
@@ -9,6 +8,7 @@ auto_attack = 0
 upgrade_lvl = 1
 upgrade_cost = 3
 damage = 1
+auto_attack_cost = 10
 
 root = tk.Tk()
 root.title("Cat Wars")
@@ -64,6 +64,11 @@ def upgrade_click():
     update()
 
 
+def auto_click():
+    click()
+    if auto_attack == 1:
+        root.after(100, auto_click)
+
 def autoclick():
     global auto_attack
     global auto_click_button
@@ -75,6 +80,7 @@ def autoclick():
         auto_attack = 1
         print("АвтоКликер Включен")
         auto_click_button.config(text="Autoclicker on")
+        auto_click()
 
 title = tk.Label(font=("Arial", 25, "bold"), text="Cat Wars", fg="orange")
 title.pack()
