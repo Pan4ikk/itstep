@@ -5,7 +5,6 @@ level = 1
 coins = 0
 max_hp = 50
 current_hp = 50
-attack = 1
 auto_attack = 0
 upgrade_lvl = 1
 upgrade_cost = 3
@@ -25,6 +24,7 @@ def update():
     hp_label.config(text=f"HP:{current_hp}")
     coins_label.config(text=f"Coins:{coins}")
     upgrade_button.config(text=f"Upgrade Cost: " + str(upgrade_cost), command=upgrade_click)
+    current_attack_label.config(font=("Arial", 14), text=f"Current attack: {damage}", fg="red")
 
 
 def death():
@@ -84,11 +84,13 @@ coins_label = tk.Label(font=("Arial", 14), text=f"Coins: {coins}", fg="gold", bg
 coins_label.pack()
 click_button = tk.Button(root, image=M_Images[level-1], command=click)
 click_button.pack()
-auto_click_button = tk.Button(root, text="Autoclicker off", command=autoclick)
-auto_click_button.pack()
-upgrade_button = tk.Button(text="Upgrade Cost: " + str(upgrade_cost), command=upgrade_click)
-upgrade_button.pack()
 hp_label = tk.Label(font=("Arial", 14), text=f"HP: {current_hp}", fg="red")
 hp_label.pack()
+current_attack_label = tk.Label(font=("Arial", 14), text=f"Current attack: {damage}", fg="red")
+current_attack_label.pack()
+auto_click_button = tk.Button(root, font=("Arial", 15), text=f"Autoclicker off", command=autoclick)
+auto_click_button.pack()
+upgrade_button = tk.Button(font=("Arial", 15), text="Upgrade Cost: " + str(upgrade_cost), command=upgrade_click)
+upgrade_button.pack()
 
 root.mainloop()
