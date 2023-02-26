@@ -12,8 +12,8 @@ pygame.display.set_caption("Простой кликер")
 screen.fill((70, 70, 70))
 
 money = 0
-house1_count = 0
-house1_earnings = 0
+house1_count = 1
+house1_earnings = 2
 house1_curprice = 10
 
 # параметры кнопки
@@ -60,6 +60,8 @@ screen.blit(house1_label, (button_rect1.x+105, button_rect1.y+30))
 house1_label = font.render(f"Стоимость: {house1_curprice}", True, (255, 255, 255))
 screen.blit(house1_label, (button_rect1.x+105, button_rect1.y+60))
 
+
+
 running = True
 while running:
     for event in pygame.event.get():
@@ -68,7 +70,6 @@ while running:
         elif event.type == pygame .MOUSEBUTTONDOWN and event.button == 1:
             if button_rect1.collidepoint(event.pos):
                 print("Кнопка 1 нажата!")
-                money += 1
             if button_rect2.collidepoint(event.pos):
                 print("Кнопка 2 нажата!")
             if button_rect3.collidepoint(event.pos):
