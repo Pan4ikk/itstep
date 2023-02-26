@@ -12,9 +12,21 @@ pygame.display.set_caption("Простой кликер")
 screen.fill((70, 70, 70))
 
 money = 0
-house1_count = 1
-house1_earnings = 2
+house1_count = 5
+house1_earnings = 1
 house1_curprice = 10
+house2_count = 4
+house2_earnings = 5
+house2_curprice = 30
+house3_count = 3
+house3_earnings = 15
+house3_curprice = 100
+house4_count = 2
+house4_earnings = 50
+house4_curprice = 320
+house5_count = 1
+house5_earnings = 200
+house5_curprice = 1000
 
 # параметры кнопки
 BUTTON_WIDTH = 100
@@ -59,6 +71,34 @@ house1_label = font.render(f"Сум. добыча: {house1_earnings}", True, (25
 screen.blit(house1_label, (button_rect1.x+105, button_rect1.y+30))
 house1_label = font.render(f"Стоимость: {house1_curprice}", True, (255, 255, 255))
 screen.blit(house1_label, (button_rect1.x+105, button_rect1.y+60))
+
+house2_label = font.render(f"Кол-во: {house2_count}", True, (255, 255, 255))
+screen.blit(house2_label, (button_rect2.x+105, button_rect2.y))
+house2_label = font.render(f"Сум. добыча: {house2_earnings}", True, (255, 255, 255))
+screen.blit(house2_label, (button_rect2.x+105, button_rect2.y+30))
+house2_label = font.render(f"Стоимость: {house2_curprice}", True, (255, 255, 255))
+screen.blit(house2_label, (button_rect2.x+105, button_rect2.y+60))
+
+house3_label = font.render(f"Кол-во: {house3_count}", True, (255, 255, 255))
+screen.blit(house3_label, (button_rect3.x+105, button_rect3.y))
+house3_label = font.render(f"Сум. добыча: {house3_earnings}", True, (255, 255, 255))
+screen.blit(house3_label, (button_rect3.x+105, button_rect3.y+30))
+house3_label = font.render(f"Стоимость: {house3_curprice}", True, (255, 255, 255))
+screen.blit(house3_label, (button_rect3.x+105, button_rect3.y+60))
+
+house4_label = font.render(f"Кол-во: {house4_count}", True, (255, 255, 255))
+screen.blit(house4_label, (button_rect4.x+105, button_rect4.y))
+house4_label = font.render(f"Сум. добыча: {house4_earnings}", True, (255, 255, 255))
+screen.blit(house4_label, (button_rect4.x+105, button_rect4.y+30))
+house4_label = font.render(f"Стоимость: {house4_curprice}", True, (255, 255, 255))
+screen.blit(house4_label, (button_rect4.x+105, button_rect4.y+60))
+
+house5_label = font.render(f"Кол-во: {house5_count}", True, (255, 255, 255))
+screen.blit(house5_label, (button_rect5.x+105, button_rect5.y))
+house5_label = font.render(f"Сум. добыча: {house5_earnings}", True, (255, 255, 255))
+screen.blit(house5_label, (button_rect5.x+105, button_rect5.y+30))
+house5_label = font.render(f"Стоимость: {house5_curprice}", True, (255, 255, 255))
+screen.blit(house5_label, (button_rect5.x+105, button_rect5.y+60))
 
 
 
