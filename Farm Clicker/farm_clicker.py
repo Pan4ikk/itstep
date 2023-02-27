@@ -9,7 +9,11 @@ FPS = 60
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Простой кликер")
-screen.fill((70, 70, 70))
+bg = pygame.image.load("bg.jpg")
+bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
+screen.blit(bg, (0, 0))
+
+
 
 money = 0
 house1_count = 5
@@ -59,11 +63,11 @@ screen.blit(image4, button_rect4)
 button_rect5 = pygame.Rect(10, 450, BUTTON_WIDTH, BUTTON_HEIGHT)
 screen.blit(image5, button_rect5)
 
-screen.blit(coin_image, (SCREEN_WIDTH//2, 10))
+screen.blit(coin_image, (SCREEN_WIDTH//1.2, 10))
 
 font = pygame.font.Font("Roboto-Regular.ttf", 24)
 text = font.render(COINS_LABEL, True, (255, 255, 255))
-screen.blit(text, (SCREEN_WIDTH//2+50, 25))
+screen.blit(text, (SCREEN_WIDTH//1.2+45, 21))
 
 house1_label = font.render(f"Кол-во: {house1_count}", True, (255, 255, 255))
 screen.blit(house1_label, (button_rect1.x+105, button_rect1.y))
@@ -99,8 +103,6 @@ house5_label = font.render(f"Сум. добыча: {house5_earnings}", True, (25
 screen.blit(house5_label, (button_rect5.x+105, button_rect5.y+30))
 house5_label = font.render(f"Стоимость: {house5_curprice}", True, (255, 255, 255))
 screen.blit(house5_label, (button_rect5.x+105, button_rect5.y+60))
-
-
 
 running = True
 while running:
