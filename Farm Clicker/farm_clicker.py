@@ -56,15 +56,15 @@ screen.blit(farm_bg, (0, 0))
 screen.blit(coin_bg, (SCREEN_WIDTH//1.2, 10))
 
 # Создание кнопки
-button_rect1 = pygame.Rect(10, 9, BUTTON_WIDTH, BUTTON_HEIGHT)
+button_rect1 = pygame.Rect(8, 9, BUTTON_WIDTH, BUTTON_HEIGHT)
 screen.blit(image1, button_rect1)
-button_rect2 = pygame.Rect(10, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
+button_rect2 = pygame.Rect(8, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
 screen.blit(image2, button_rect2)
-button_rect3 = pygame.Rect(10, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
+button_rect3 = pygame.Rect(8, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
 screen.blit(image3, button_rect3)
-button_rect4 = pygame.Rect(10, 340, BUTTON_WIDTH, BUTTON_HEIGHT)
+button_rect4 = pygame.Rect(8, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
 screen.blit(image4, button_rect4)
-button_rect5 = pygame.Rect(10, 452, BUTTON_WIDTH, BUTTON_HEIGHT)
+button_rect5 = pygame.Rect(8, 452, BUTTON_WIDTH, BUTTON_HEIGHT)
 screen.blit(image5, button_rect5)
 
 screen.blit(coin_image, (SCREEN_WIDTH//1.2, 10))
@@ -107,7 +107,7 @@ screen.blit(house1_label, (button_rect1.x+125, button_rect1.y+40))
 house1_label = font.render(f"Стоимость: {house1_curprice}", True, (241, 221, 56))
 screen.blit(house1_label_border3, (button_rect1.x+129-border_size, button_rect1.y+74-border_size))
 screen.blit(house1_label, (button_rect1.x+125, button_rect1.y+70))
-#####################
+###################################################################################################
 house2_label = font.render(f"Кол-во: {house2_count}", True, (241, 221, 56))
 screen.blit(house1_label_border4, (button_rect2.x+129-border_size, button_rect2.y+14-border_size))
 screen.blit(house2_label, (button_rect2.x+125, button_rect2.y+10))
@@ -117,7 +117,7 @@ screen.blit(house2_label, (button_rect2.x+125, button_rect2.y+40))
 house2_label = font.render(f"Стоимость: {house2_curprice}", True, (241, 221, 56))
 screen.blit(house1_label_border6, (button_rect2.x+129-border_size, button_rect2.y+74-border_size))
 screen.blit(house2_label, (button_rect2.x+125, button_rect2.y+70))
-#####################
+###################################################################################################
 house3_label = font.render(f"Кол-во: {house3_count}", True, (241, 221, 56))
 screen.blit(house1_label_border7, (button_rect3.x+129-border_size, button_rect3.y+14-border_size))
 screen.blit(house3_label, (button_rect3.x+125, button_rect3.y+10))
@@ -127,27 +127,29 @@ screen.blit(house3_label, (button_rect3.x+125, button_rect3.y+40))
 house3_label = font.render(f"Стоимость: {house3_curprice}", True, (241, 221, 56))
 screen.blit(house1_label_border9, (button_rect3.x+129-border_size, button_rect3.y+74-border_size))
 screen.blit(house3_label, (button_rect3.x+125, button_rect3.y+70))
-#####################
+###################################################################################################
 house4_label = font.render(f"Кол-во: {house4_count}", True, (241, 221, 56))
-screen.blit(house1_label_border10, (button_rect4.x+129-border_size, button_rect4.y+14-border_size))
+screen.blit(house1_label_border10, (button_rect4.x+129-border_size, button_rect4.y+14.5-border_size))
 screen.blit(house4_label, (button_rect4.x+125, button_rect4.y+10))
 house4_label = font.render(f"Сум. добыча: {house4_earnings}", True, (241, 221, 56))
-screen.blit(house1_label_border11, (button_rect4.x+129-border_size, button_rect4.y+44-border_size))
+screen.blit(house1_label_border11, (button_rect4.x+129-border_size, button_rect4.y+44.5-border_size))
 screen.blit(house4_label, (button_rect4.x+125, button_rect4.y+40))
 house4_label = font.render(f"Стоимость: {house4_curprice}", True, (241, 221, 56))
-screen.blit(house1_label_border12, (button_rect4.x+129-border_size, button_rect4.y+74-border_size))
+screen.blit(house1_label_border12, (button_rect4.x+129-border_size, button_rect4.y+74.5-border_size))
 screen.blit(house4_label, (button_rect4.x+125, button_rect4.y+70))
-#####################
+###################################################################################################
 house5_label = font.render(f"Кол-во: {house5_count}", True, (241, 221, 56))
-screen.blit(house1_label_border13, (button_rect5.x+129-border_size, button_rect5.y+14-border_size))
-screen.blit(house5_label, (button_rect5.x+125, button_rect5.y+10))
+screen.blit(house1_label_border13, (button_rect5.x+129-border_size, button_rect5.y+11.5-border_size))
+screen.blit(house5_label, (button_rect5.x+125, button_rect5.y+7))
 house5_label = font.render(f"Сум. добыча: {house5_earnings}", True, (241, 221, 56))
-screen.blit(house1_label_border14, (button_rect5.x+129-border_size, button_rect5.y+44-border_size))
-screen.blit(house5_label, (button_rect5.x+125, button_rect5.y+40))
+screen.blit(house1_label_border14, (button_rect5.x+129-border_size, button_rect5.y+41.5-border_size))
+screen.blit(house5_label, (button_rect5.x+125, button_rect5.y+37))
 house5_label = font.render(f"Стоимость: {house5_curprice}", True, (241, 221, 56))
-screen.blit(house1_label_border15, (button_rect5.x+129-border_size, button_rect5.y+74-border_size))
-screen.blit(house5_label, (button_rect5.x+125, button_rect5.y+70))
-#####################
+screen.blit(house1_label_border15, (button_rect5.x+129-border_size, button_rect5.y+71.5-border_size))
+screen.blit(house5_label, (button_rect5.x+125, button_rect5.y+67))
+###################################################################################################
+###################################################################################################
+###################################################################################################
 
 running = True
 while running:
