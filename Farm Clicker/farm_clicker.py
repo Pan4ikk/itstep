@@ -20,21 +20,21 @@ house1_earnings = 1
 house1_curprice = 5
 house2_count = 0
 house2_earnings = 0
-house2_curprice = 30
+house2_curprice = 70
 house3_count = 0
 house3_earnings = 0
-house3_curprice = 100
+house3_curprice = 1000
 house4_count = 0
 house4_earnings = 0
-house4_curprice = 320
+house4_curprice = 14000
 house5_count = 0
 house5_earnings = 0
-house5_curprice = 1000
+house5_curprice = 200000
 
 # параметры кнопки
 BUTTON_WIDTH = 100
 BUTTON_HEIGHT = 100
-COINS_LABEL = ("%.1f" % money)
+COINS_LABEL = ("%.0f" % money)
 
 coin_bg = pygame.image.load("bg_coin.png")
 farm_bg = pygame.image.load("bg_farm.png")
@@ -63,7 +63,7 @@ button_rect2 = pygame.Rect(8, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect3 = pygame.Rect(8, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect4 = pygame.Rect(8, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect5 = pygame.Rect(8, 452, BUTTON_WIDTH, BUTTON_HEIGHT)
-button_rect6 = pygame.Rect(300, 300, BUTTON_WIDTH, BUTTON_HEIGHT)
+button_rect6 = pygame.Rect(300, 560, BUTTON_WIDTH, BUTTON_HEIGHT)
 
 
 #Настройка окантовки
@@ -77,41 +77,41 @@ text = font.render(COINS_LABEL, True, (241, 221, 56))
 
 #Тени для текста
 house1_label_border1 = font.render(f"Кол-во: {house1_count}", True, border_color)
-house1_label_border2 = font.render(f"Сум. добыча: {house1_earnings}", True, border_color)
-house1_label_border3 = font.render(f"Стоимость: {house1_curprice:.1f}", True, border_color)
+house1_label_border2 = font.render(f"Сум. добыча: {house1_earnings:.1f}", True, border_color)
+house1_label_border3 = font.render(f"Стоимость: {house1_curprice:.0f}", True, border_color)
 house1_label_border4 = font.render(f"Кол-во: {house2_count}", True, border_color)
-house1_label_border5 = font.render(f"Сум. добыча: {house2_earnings}", True, border_color)
-house1_label_border6 = font.render(f"Стоимость: {house2_curprice:.1f}", True, border_color)
+house1_label_border5 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, border_color)
+house1_label_border6 = font.render(f"Стоимость: {house2_curprice:.0f}", True, border_color)
 house1_label_border7 = font.render(f"Кол-во: {house3_count}", True, border_color)
-house1_label_border8 = font.render(f"Сум. добыча: {house3_earnings}", True, border_color)
-house1_label_border9 = font.render(f"Стоимость: {house3_curprice:.1f}", True, border_color)
+house1_label_border8 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, border_color)
+house1_label_border9 = font.render(f"Стоимость: {house3_curprice:.0f}", True, border_color)
 house1_label_border10 = font.render(f"Кол-во: {house4_count}", True, border_color)
-house1_label_border11 = font.render(f"Сум. добыча: {house4_earnings}", True, border_color)
-house1_label_border12 = font.render(f"Стоимость: {house4_curprice:.1f}", True, border_color)
+house1_label_border11 = font.render(f"Сум. добыча: {house4_earnings:.1f}", True, border_color)
+house1_label_border12 = font.render(f"Стоимость: {house4_curprice:.0f}", True, border_color)
 house1_label_border13 = font.render(f"Кол-во: {house5_count}", True, border_color)
-house1_label_border14 = font.render(f"Сум. добыча: {house5_earnings}", True, border_color)
-house1_label_border15 = font.render(f"Стоимость: {house5_curprice:.1f}", True, border_color)
+house1_label_border14 = font.render(f"Сум. добыча: {house5_earnings:.1f}", True, border_color)
+house1_label_border15 = font.render(f"Стоимость: {house5_curprice:.0f}", True, border_color)
 
 #Прописываем текст к кнопкам
 house1_label1 = font.render(f"Кол-во: {house1_count}", True, (241, 221, 56))
-house1_label2 = font.render(f"Сум. добыча: {house1_earnings}", True, (241, 221, 56))
-house1_label3 = font.render(f"Стоимость: {house1_curprice:.1f}", True, (241, 221, 56))
+house1_label2 = font.render(f"Сум. добыча: {house1_earnings:.1f}", True, (241, 221, 56))
+house1_label3 = font.render(f"Стоимость: {house1_curprice:.0f}", True, (241, 221, 56))
 ###################################################################################################
 house2_label1 = font.render(f"Кол-во: {house2_count}", True, (241, 221, 56))
-house2_label2 = font.render(f"Сум. добыча: {house2_earnings}", True, (241, 221, 56))
-house2_label3 = font.render(f"Стоимость: {house2_curprice:.1f}", True, (241, 221, 56))
+house2_label2 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, (241, 221, 56))
+house2_label3 = font.render(f"Стоимость: {house2_curprice:.0f}", True, (241, 221, 56))
 ###################################################################################################
 house3_label1 = font.render(f"Кол-во: {house3_count}", True, (241, 221, 56))
-house3_label2 = font.render(f"Сум. добыча: {house3_earnings}", True, (241, 221, 56))
-house3_label3 = font.render(f"Стоимость: {house3_curprice:.1f}", True, (241, 221, 56))
+house3_label2 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, (241, 221, 56))
+house3_label3 = font.render(f"Стоимость: {house3_curprice:.0f}", True, (241, 221, 56))
 ###################################################################################################
 house4_label1 = font.render(f"Кол-во: {house4_count}", True, (241, 221, 56))
-house4_label2 = font.render(f"Сум. добыча: {house4_earnings}", True, (241, 221, 56))
-house4_label3 = font.render(f"Стоимость: {house4_curprice:.1f}", True, (241, 221, 56))
+house4_label2 = font.render(f"Сум. добыча: {house4_earnings:.1f}", True, (241, 221, 56))
+house4_label3 = font.render(f"Стоимость: {house4_curprice:.0f}", True, (241, 221, 56))
 ###################################################################################################
 house5_label1 = font.render(f"Кол-во: {house5_count}", True, (241, 221, 56))
-house5_label2 = font.render(f"Сум. добыча: {house5_earnings}", True, (241, 221, 56))
-house5_label3 = font.render(f"Стоимость: {house5_curprice:.1f}", True, (241, 221, 56))
+house5_label2 = font.render(f"Сум. добыча: {house5_earnings:.1f}", True, (241, 221, 56))
+house5_label3 = font.render(f"Стоимость: {house5_curprice:.0f}", True, (241, 221, 56))
 ###################################################################################################
 ###################################################################################################
 ###################################################################################################
@@ -163,7 +163,7 @@ def auto_click():
     global text
     money += house1_earnings+house2_earnings+house3_earnings+house4_earnings+house5_earnings
     screen.blit(farm_bg, (0, 0))
-    text = font.render(("%.1f" % money), True, (241, 221, 56))
+    text = font.render(("%.0f" % money), True, (241, 221, 56))
     update_all()
     Timer(1, auto_click).start()
 
@@ -187,11 +187,11 @@ while running:
                     house1_curprice *= 1.3
                     screen.blit(farm_bg, (0, 0))
                     house1_label1 = font.render(f"Кол-во: {house1_count}", True, (241, 221, 56))
-                    house1_label2 = font.render(f"Сум. добыча: {house1_earnings}", True, (241, 221, 56))
-                    house1_label3 = font.render(f"Стоимость: {house1_curprice:.1f}", True, (241, 221, 56))
+                    house1_label2 = font.render(f"Сум. добыча: {house1_earnings:.1f}", True, (241, 221, 56))
+                    house1_label3 = font.render(f"Стоимость: {house1_curprice:.0f}", True, (241, 221, 56))
                     house1_label_border1 = font.render(f"Кол-во: {house1_count}", True, border_color)
-                    house1_label_border2 = font.render(f"Сум. добыча: {house1_earnings}", True, border_color)
-                    house1_label_border3 = font.render(f"Стоимость: {house1_curprice:.1f}", True, border_color)
+                    house1_label_border2 = font.render(f"Сум. добыча: {house1_earnings:.1f}", True, border_color)
+                    house1_label_border3 = font.render(f"Стоимость: {house1_curprice:.0f}", True, border_color)
                     text = font.render(COINS_LABEL, True, (241, 221, 56))
                     coin_border = font.render(COINS_LABEL, True, (110, 88, 22))
                     update_all()
@@ -200,15 +200,15 @@ while running:
                 if money >= house2_curprice:
                     money -= house2_curprice
                     house2_count += 1
-                    house2_earnings += 10
+                    house2_earnings += 14
                     house2_curprice *= 1.3
                     screen.blit(farm_bg, (0, 0))
                     house2_label1 = font.render(f"Кол-во: {house2_count}", True, (241, 221, 56))
-                    house2_label2 = font.render(f"Сум. добыча: {house2_earnings}", True, (241, 221, 56))
-                    house2_label3 = font.render(f"Стоимость: {house2_curprice:.1f}", True, (241, 221, 56))
+                    house2_label2 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, (241, 221, 56))
+                    house2_label3 = font.render(f"Стоимость: {house2_curprice:.0f}", True, (241, 221, 56))
                     house2_label_border1 = font.render(f"Кол-во: {house2_count}", True, border_color)
-                    house2_label_border2 = font.render(f"Сум. добыча: {house2_earnings}", True, border_color)
-                    house2_label_border3 = font.render(f"Стоимость: {house2_curprice:.1f}", True, border_color)
+                    house2_label_border2 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, border_color)
+                    house2_label_border3 = font.render(f"Стоимость: {house2_curprice:.0f}", True, border_color)
                     text = font.render(COINS_LABEL, True, (241, 221, 56))
                     coin_border = font.render(COINS_LABEL, True, (110, 88, 22))
                     update_all()
@@ -217,15 +217,15 @@ while running:
                 if money >= house3_curprice:
                     money -= house3_curprice
                     house3_count += 1
-                    house3_earnings += 33
+                    house3_earnings += 196
                     house3_curprice *= 1.3
                     screen.blit(farm_bg, (0, 0))
                     house3_label1 = font.render(f"Кол-во: {house3_count}", True, (241, 221, 56))
-                    house3_label2 = font.render(f"Сум. добыча: {house3_earnings}", True, (241, 221, 56))
-                    house3_label3 = font.render(f"Стоимость: {house3_curprice:.1f}", True, (241, 221, 56))
+                    house3_label2 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, (241, 221, 56))
+                    house3_label3 = font.render(f"Стоимость: {house3_curprice:.0f}", True, (241, 221, 56))
                     house3_label_border1 = font.render(f"Кол-во: {house3_count}", True, border_color)
-                    house3_label_border2 = font.render(f"Сум. добыча: {house3_earnings}", True, border_color)
-                    house3_label_border3 = font.render(f"Стоимость: {house3_curprice:.1f}", True, border_color)
+                    house3_label_border2 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, border_color)
+                    house3_label_border3 = font.render(f"Стоимость: {house3_curprice:.0f}", True, border_color)
                     text = font.render(COINS_LABEL, True, (241, 221, 56))
                     coin_border = font.render(COINS_LABEL, True, (110, 88, 22))
                     update_all()
@@ -234,15 +234,15 @@ while running:
                 if money >= house4_curprice:
                     money -= house4_curprice
                     house4_count += 1
-                    house4_earnings += 110
+                    house4_earnings += 2800
                     house4_curprice *= 1.3
                     screen.blit(farm_bg, (0, 0))
                     house4_label1 = font.render(f"Кол-во: {house4_count}", True, (241, 221, 56))
-                    house4_label2 = font.render(f"Сум. добыча: {house4_earnings}", True, (241, 221, 56))
-                    house4_label3 = font.render(f"Стоимость: {house4_curprice:.1f}", True, (241, 221, 56))
+                    house4_label2 = font.render(f"Сум. добыча: {house4_earnings:.1f}", True, (241, 221, 56))
+                    house4_label3 = font.render(f"Стоимость: {house4_curprice:.0f}", True, (241, 221, 56))
                     house4_label_border1 = font.render(f"Кол-во: {house4_count}", True, border_color)
-                    house4_label_border2 = font.render(f"Сум. добыча: {house4_earnings}", True, border_color)
-                    house4_label_border3 = font.render(f"Стоимость: {house4_curprice:.1f}", True, border_color)
+                    house4_label_border2 = font.render(f"Сум. добыча: {house4_earnings:.1f}", True, border_color)
+                    house4_label_border3 = font.render(f"Стоимость: {house4_curprice:.0f}", True, border_color)
                     text = font.render(COINS_LABEL, True, (241, 221, 56))
                     coin_border = font.render(COINS_LABEL, True, (110, 88, 22))
                     update_all()
@@ -251,15 +251,15 @@ while running:
                 if money >= house5_curprice:
                     money -= house5_curprice
                     house5_count += 1
-                    house5_earnings += 333
+                    house5_earnings += 39200
                     house5_curprice *= 1.3
                     screen.blit(farm_bg, (0, 0))
                     house5_label1 = font.render(f"Кол-во: {house5_count}", True, (241, 221, 56))
-                    house5_label2 = font.render(f"Сум. добыча: {house5_earnings}", True, (241, 221, 56))
-                    house5_label3 = font.render(f"Стоимость: {house5_curprice:.1f}", True, (241, 221, 56))
+                    house5_label2 = font.render(f"Сум. добыча: {house5_earnings:.1f}", True, (241, 221, 56))
+                    house5_label3 = font.render(f"Стоимость: {house5_curprice:.0f}", True, (241, 221, 56))
                     house5_label_border1 = font.render(f"Кол-во: {house5_count}", True, border_color)
-                    house5_label_border2 = font.render(f"Сум. добыча: {house5_earnings}", True, border_color)
-                    house5_label_border3 = font.render(f"Стоимость: {house5_curprice:.1f}", True, border_color)
+                    house5_label_border2 = font.render(f"Сум. добыча: {house5_earnings:.1f}", True, border_color)
+                    house5_label_border3 = font.render(f"Стоимость: {house5_curprice:.0f}", True, border_color)
                     text = font.render(COINS_LABEL, True, (241, 221, 56))
                     coin_border = font.render(COINS_LABEL, True, (110, 88, 22))
                     update_all()
