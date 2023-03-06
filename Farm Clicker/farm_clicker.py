@@ -31,6 +31,8 @@ house5_count = 0
 house5_earnings = 0
 house5_curprice = 200000
 
+housex1 = 1
+
 # параметры кнопки
 BUTTON_WIDTH = 100
 BUTTON_HEIGHT = 100
@@ -64,7 +66,6 @@ button_rect3 = pygame.Rect(8, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect4 = pygame.Rect(8, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect5 = pygame.Rect(8, 452, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect6 = pygame.Rect(300, 560, BUTTON_WIDTH, BUTTON_HEIGHT)
-
 
 #Настройка окантовки
 border_color = (110, 88, 22)
@@ -115,7 +116,8 @@ house5_label3 = font.render(f"Стоимость: {house5_curprice:.0f}", True, 
 ###################################################################################################
 ###################################################################################################
 ###################################################################################################
-
+upgrade1_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade1_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 def update_all():
     screen.blit(image1, button_rect1)
     screen.blit(image2, button_rect2)
@@ -156,20 +158,49 @@ def update_all():
     screen.blit(house5_label2, (button_rect5.x + 125, button_rect5.y + 40))
     screen.blit(house1_label_border15, (button_rect5.x + 129 - border_size, button_rect5.y + 74 - border_size))
     screen.blit(house5_label3, (button_rect5.x + 125, button_rect5.y + 70))
-
+def update2():
+    screen.blit(image5, upgrade1_1)
+def update3():
+    screen.blit(image1, upgrade1_2)
 def auto_click():
     global farm_bg
     global money
     global text
+    global housex1
+    global upgrade1_2
+    global upgrade1_1
     money += house1_earnings+house2_earnings+house3_earnings+house4_earnings+house5_earnings
     screen.blit(farm_bg, (0, 0))
     text = font.render(("%.0f" % money), True, (241, 221, 56))
     update_all()
+    if house1_count >= 5:
+        if housex1 >= 5:
+            update_all()
+        else:
+            update2()
+            upgrade1_1 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
+    if house1_count >= 10 and housex1 == 5:
+        if housex1 >= 25:
+            update_all()
+        else:
+            update3()
+            upgrade1_2 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
     Timer(1, auto_click).start()
+    print(housex1)
 
 def click():
     global money
-    money += 1
+    money += 1000
+
+def upgrade():
+    global house1_label2
+    global house1_label_border2
+    global house1_earnings
+    global housex1
+    house1_earnings *= 5
+    housex1 *= 5
+    house1_label2 = font.render(f"Сум. добыча: {house1_earnings:.1f}", True, (241, 221, 56))
+    house1_label_border2 = font.render(f"Сум. добыча: {house1_earnings:.1f}", True, border_color)
 
 auto_click()
 running = True
@@ -183,8 +214,8 @@ while running:
                 if money >= house1_curprice:
                     money -= house1_curprice
                     house1_count += 1
-                    house1_earnings += 1
-                    house1_curprice *= 1.3
+                    house1_earnings += 1 * housex1
+                    house1_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
                     house1_label1 = font.render(f"Кол-во: {house1_count}", True, (241, 221, 56))
                     house1_label2 = font.render(f"Сум. добыча: {house1_earnings:.1f}", True, (241, 221, 56))
@@ -201,7 +232,7 @@ while running:
                     money -= house2_curprice
                     house2_count += 1
                     house2_earnings += 14
-                    house2_curprice *= 1.3
+                    house2_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
                     house2_label1 = font.render(f"Кол-во: {house2_count}", True, (241, 221, 56))
                     house2_label2 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, (241, 221, 56))
@@ -218,7 +249,7 @@ while running:
                     money -= house3_curprice
                     house3_count += 1
                     house3_earnings += 196
-                    house3_curprice *= 1.3
+                    house3_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
                     house3_label1 = font.render(f"Кол-во: {house3_count}", True, (241, 221, 56))
                     house3_label2 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, (241, 221, 56))
@@ -235,7 +266,7 @@ while running:
                     money -= house4_curprice
                     house4_count += 1
                     house4_earnings += 2800
-                    house4_curprice *= 1.3
+                    house4_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
                     house4_label1 = font.render(f"Кол-во: {house4_count}", True, (241, 221, 56))
                     house4_label2 = font.render(f"Сум. добыча: {house4_earnings:.1f}", True, (241, 221, 56))
@@ -252,7 +283,7 @@ while running:
                     money -= house5_curprice
                     house5_count += 1
                     house5_earnings += 39200
-                    house5_curprice *= 1.3
+                    house5_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
                     house5_label1 = font.render(f"Кол-во: {house5_count}", True, (241, 221, 56))
                     house5_label2 = font.render(f"Сум. добыча: {house5_earnings:.1f}", True, (241, 221, 56))
@@ -266,6 +297,16 @@ while running:
             elif button_rect6.collidepoint(event.pos):
                 click()
                 update_all()
+            elif upgrade1_1.collidepoint(event.pos):
+                if money >= 200 and housex1 == 1:
+                    money -= 200
+                    upgrade()
+                    upgrade1_1 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+            elif upgrade1_2.collidepoint(event.pos):
+                if money >= 10000 and housex1 == 5:
+                    money -= 10000
+                    upgrade()
+                    upgrade1_2 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 
     pygame.display.update()
 
