@@ -16,9 +16,9 @@ screen.blit(bg, (0, 0))
 pygame.display.set_icon(pygame.image.load("icon.png"))
 
 pygame.mixer.music.load("1.mp3")
-pygame.mixer.music.play(1)
+pygame.mixer.music.play(-1)
 
-money = 2134123123123123
+money = 999999999995
 house1_count = 1
 house1_earnings = 1
 house1_curprice = 5
@@ -84,6 +84,8 @@ upgrade4_2_image = pygame.image.load("upgrade4_2.png")
 upgrade4_3_image = pygame.image.load("upgrade4_3.png")
 upgrade5_1_image = pygame.image.load("upgrade5_1.png")
 upgrade5_2_image = pygame.image.load("upgrade5_2.png")
+ending = pygame.image.load("end.png")
+end_button = pygame.image.load("end_button.png")
 
 
 
@@ -117,6 +119,10 @@ upgrade4_2_image = pygame.transform.scale(upgrade4_2_image, (BUTTON_WIDTH, BUTTO
 upgrade4_3_image = pygame.transform.scale(upgrade4_3_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
 upgrade5_1_image = pygame.transform.scale(upgrade5_1_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
 upgrade5_2_image = pygame.transform.scale(upgrade5_2_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+ending = pygame.transform.scale(ending, (1200, 675))
+end_button = pygame.transform.scale(end_button, (BUTTON_WIDTH, BUTTON_HEIGHT))
+
+
 
 coin_image = pygame.transform.scale(coin_image, (50, 50))
 coin_bg = pygame.transform.scale(coin_bg, (500, 50))
@@ -139,6 +145,7 @@ border_size = 2
 #Настройка шрифта и текст монеток
 font = pygame.font.Font("PressStart2P-Regular.ttf", 11)
 text = font.render(str(money), True, (241, 221, 56))
+secret = font.render("1T-???", True, (241, 221, 56))
 
 
 #Тени для текста
@@ -215,6 +222,9 @@ upgrade4_3 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade5_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade5_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 
+secret_button = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+ending1 = pygame.Rect(3637, 13000, SCREEN_WIDTH, SCREEN_HEIGHT)
+
 WHITE = (255, 255, 255)
 
 def update_all():
@@ -244,9 +254,12 @@ def update_all():
     screen.blit(upgrade4_3_image, upgrade4_3)
     screen.blit(upgrade5_1_image, upgrade5_1)
     screen.blit(upgrade5_2_image, upgrade5_2)
+    screen.blit(end_button, secret_button)
+    screen.blit(ending, ending1)
     screen.blit(coin_bg, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(coin_image, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(text, (SCREEN_WIDTH // 1.6 + 60, 26))
+    screen.blit(secret, (SCREEN_WIDTH // 1.3 + 200, 26))
     screen.blit(house1_label_border1, (button_rect1.x + 129 - border_size, button_rect1.y + 14 - border_size))
     screen.blit(house1_label1, (button_rect1.x + 125, button_rect1.y + 10))
     screen.blit(house1_label_border2, (button_rect1.x + 129 - border_size, button_rect1.y + 44 - border_size))
@@ -281,7 +294,7 @@ def update_all():
 def auto_click():
     global sword_label1, sword_label2, sword_label3, farm_bg, money, housex1, upgrade1_2, upgrade1_1, sword, sword_count, swordx, sword_label_border1, sword_label_border2, text
     global sword_label_border3, house2_count, house3_count, house3_count, house3_count, upgrade2_1, upgrade3_1, upgrade4_1, upgrade5_1, upgrade2_2, upgrade3_2, upgrade4_2, upgrade5_2
-    global upgrade1_3, upgrade1_4, upgrade1_5, upgrade1_6, upgrade2_3, upgrade2_4, upgrade2_5, upgrade3_3, upgrade3_4, upgrade4_3
+    global upgrade1_3, upgrade1_4, upgrade1_5, upgrade1_6, upgrade2_3, upgrade2_4, upgrade2_5, upgrade3_3, upgrade3_4, upgrade4_3, secret_button
     money += house1_earnings+house2_earnings+house3_earnings+house4_earnings+house5_earnings
     screen.blit(farm_bg, (0, 0))
     text = font.render(str(money), True, (241, 221, 56))
@@ -354,8 +367,8 @@ def auto_click():
             update_all()
         else:
             upgrade1_5 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
-    if house1_count >= 30 and housex1 == 250000:
-        if housex1 >= 250001:
+    if house1_count >= 30 and housex1 == 350000:
+        if housex1 >= 350001:
             update_all()
         else:
             upgrade1_6 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
@@ -450,6 +463,11 @@ def auto_click():
         screen.blit(sword4, sword)
     elif sword_count >= 7:
         screen.blit(sword4, sword)
+    if money < 1000000000000:
+        secret_button = pygame.Rect(800, 2312, BUTTON_WIDTH, BUTTON_HEIGHT)
+    if money >= 1000000000000:
+        secret_button = pygame.Rect(800, 280, BUTTON_WIDTH, BUTTON_HEIGHT)
+    screen.blit(ending, ending1)
     Timer(1, auto_click).start()
 
 def upgrade1():
@@ -784,7 +802,7 @@ while running:
                 if money >= house5_curprice:
                     money -= house5_curprice
                     house5_count += 1
-                    house5_earnings += 190000 * housex5
+                    house5_earnings += 200000 * housex5
                     house5_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
                     house1_label_border13 = font.render(f"Кол-во: {house5_count}", True, border_color)
@@ -973,6 +991,12 @@ while running:
                     upgrade5_2 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
             #############################################################
+            ### КПОПКА КОНЦОВКИ ###
+            elif secret_button.collidepoint(event.pos):
+                if money >= 1000000000000:
+                    money -= 99999999999999999999999 * 999999
+                    ending1 = pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
+
 
     pygame.display.update()
     pygame.time.Clock().tick(FPS)
