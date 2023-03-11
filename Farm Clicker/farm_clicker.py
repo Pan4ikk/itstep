@@ -18,7 +18,7 @@ pygame.display.set_icon(pygame.image.load("icon.png"))
 pygame.mixer.music.load("1.mp3")
 pygame.mixer.music.play(1)
 
-money = 65645645645645645
+money = 2134123123123123
 house1_count = 1
 house1_earnings = 1
 house1_curprice = 5
@@ -64,6 +64,28 @@ sword3 = pygame.image.load("sword3.png")
 sword4 = pygame.image.load("sword4.png")
 coin_image = pygame.image.load("coin.png")
 upgrade_icon = pygame.image.load("upgrade_icon.png")
+upgrade1_1_image = pygame.image.load("upgrade1_1.png")
+upgrade1_2_image = pygame.image.load("upgrade1_2.png")
+upgrade1_3_image = pygame.image.load("upgrade1_3.png")
+upgrade1_4_image = pygame.image.load("upgrade1_4.png")
+upgrade1_5_image = pygame.image.load("upgrade1_5.png")
+upgrade1_6_image = pygame.image.load("upgrade1_6.png")
+upgrade2_1_image = pygame.image.load("upgrade2_1.png")
+upgrade2_2_image = pygame.image.load("upgrade2_2.png")
+upgrade2_3_image = pygame.image.load("upgrade2_3.png")
+upgrade2_4_image = pygame.image.load("upgrade2_4.png")
+upgrade2_5_image = pygame.image.load("upgrade2_5.png")
+upgrade3_1_image = pygame.image.load("upgrade3_1.png")
+upgrade3_2_image = pygame.image.load("upgrade3_2.png")
+upgrade3_3_image = pygame.image.load("upgrade3_3.png")
+upgrade3_4_image = pygame.image.load("upgrade3_4.png")
+upgrade4_1_image = pygame.image.load("upgrade4_1.png")
+upgrade4_2_image = pygame.image.load("upgrade4_2.png")
+upgrade4_3_image = pygame.image.load("upgrade4_3.png")
+upgrade5_1_image = pygame.image.load("upgrade5_1.png")
+upgrade5_2_image = pygame.image.load("upgrade5_2.png")
+
+
 
 image1 = pygame.transform.scale(image1, (BUTTON_WIDTH, BUTTON_HEIGHT))
 image2 = pygame.transform.scale(image2, (BUTTON_WIDTH, BUTTON_HEIGHT))
@@ -75,6 +97,26 @@ sword2 = pygame.transform.scale(sword2, (BUTTON_WIDTH, BUTTON_HEIGHT))
 sword3 = pygame.transform.scale(sword3, (BUTTON_WIDTH, BUTTON_HEIGHT))
 sword4 = pygame.transform.scale(sword4, (BUTTON_WIDTH, BUTTON_HEIGHT))
 upgrade_icon = pygame.transform.scale(upgrade_icon, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade1_1_image = pygame.transform.scale(upgrade1_1_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade1_2_image = pygame.transform.scale(upgrade1_2_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade1_3_image = pygame.transform.scale(upgrade1_3_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade1_4_image = pygame.transform.scale(upgrade1_4_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade1_5_image = pygame.transform.scale(upgrade1_5_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade1_6_image = pygame.transform.scale(upgrade1_6_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade2_1_image = pygame.transform.scale(upgrade2_1_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade2_2_image = pygame.transform.scale(upgrade2_2_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade2_3_image = pygame.transform.scale(upgrade2_3_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade2_4_image = pygame.transform.scale(upgrade2_4_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade2_5_image = pygame.transform.scale(upgrade2_5_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade3_1_image = pygame.transform.scale(upgrade3_1_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade3_2_image = pygame.transform.scale(upgrade3_2_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade3_3_image = pygame.transform.scale(upgrade3_3_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade3_4_image = pygame.transform.scale(upgrade3_4_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade4_1_image = pygame.transform.scale(upgrade4_1_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade4_2_image = pygame.transform.scale(upgrade4_2_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade4_3_image = pygame.transform.scale(upgrade4_3_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade5_1_image = pygame.transform.scale(upgrade5_1_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
+upgrade5_2_image = pygame.transform.scale(upgrade5_2_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
 
 coin_image = pygame.transform.scale(coin_image, (50, 50))
 coin_bg = pygame.transform.scale(coin_bg, (500, 50))
@@ -88,7 +130,7 @@ button_rect2 = pygame.Rect(8, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect3 = pygame.Rect(8, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect4 = pygame.Rect(8, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
 button_rect5 = pygame.Rect(8, 452, BUTTON_WIDTH, BUTTON_HEIGHT)
-sword = pygame.Rect(335, 560, BUTTON_WIDTH, BUTTON_HEIGHT)
+sword = pygame.Rect(388, 560, BUTTON_WIDTH, BUTTON_HEIGHT)
 
 #Настройка окантовки
 border_color = (110, 88, 22)
@@ -182,26 +224,26 @@ def update_all():
     screen.blit(image4, button_rect4)
     screen.blit(image5, button_rect5)
     screen.blit(upgrade_icon, sword)
-    screen.blit(image5, upgrade1_1)
-    screen.blit(image1, upgrade1_2)
-    screen.blit(image5, upgrade1_3)
-    screen.blit(image1, upgrade1_4)
-    screen.blit(image5, upgrade1_5)
-    screen.blit(image1, upgrade1_6)
-    screen.blit(image5, upgrade2_1)
-    screen.blit(image1, upgrade2_2)
-    screen.blit(image5, upgrade2_3)
-    screen.blit(image1, upgrade2_4)
-    screen.blit(image5, upgrade2_5)
-    screen.blit(image5, upgrade3_1)
-    screen.blit(image1, upgrade3_2)
-    screen.blit(image5, upgrade3_3)
-    screen.blit(image1, upgrade3_4)
-    screen.blit(image5, upgrade4_1)
-    screen.blit(image1, upgrade4_2)
-    screen.blit(image5, upgrade4_3)
-    screen.blit(image5, upgrade5_1)
-    screen.blit(image1, upgrade5_2)
+    screen.blit(upgrade1_1_image, upgrade1_1)
+    screen.blit(upgrade1_2_image, upgrade1_2)
+    screen.blit(upgrade1_3_image, upgrade1_3)
+    screen.blit(upgrade1_4_image, upgrade1_4)
+    screen.blit(upgrade1_5_image, upgrade1_5)
+    screen.blit(upgrade1_6_image, upgrade1_6)
+    screen.blit(upgrade2_1_image, upgrade2_1)
+    screen.blit(upgrade2_2_image, upgrade2_2)
+    screen.blit(upgrade2_3_image, upgrade2_3)
+    screen.blit(upgrade2_4_image, upgrade2_4)
+    screen.blit(upgrade2_5_image, upgrade2_5)
+    screen.blit(upgrade3_1_image, upgrade3_1)
+    screen.blit(upgrade3_2_image, upgrade3_2)
+    screen.blit(upgrade3_3_image, upgrade3_3)
+    screen.blit(upgrade3_4_image, upgrade3_4)
+    screen.blit(upgrade4_1_image, upgrade4_1)
+    screen.blit(upgrade4_2_image, upgrade4_2)
+    screen.blit(upgrade4_3_image, upgrade4_3)
+    screen.blit(upgrade5_1_image, upgrade5_1)
+    screen.blit(upgrade5_2_image, upgrade5_2)
     screen.blit(coin_bg, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(coin_image, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(text, (SCREEN_WIDTH // 1.6 + 60, 26))
@@ -291,106 +333,106 @@ def auto_click():
         if housex1 >= 5:
             update_all()
         else:
-            upgrade1_1 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade1_1 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house1_count >= 10 and housex1 == 50:
         if housex1 >= 51:
             update_all()
         else:
-            upgrade1_2 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade1_2 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house1_count >= 15 and housex1 == 500:
         if housex1 >= 501:
             update_all()
         else:
-            upgrade1_3 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade1_3 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house1_count >= 20 and housex1 == 5000:
         if housex1 >= 5001:
             update_all()
         else:
-            upgrade1_4 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade1_4 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house1_count >= 25 and housex1 == 50000:
         if housex1 >= 50001:
             update_all()
         else:
-            upgrade1_5 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade1_5 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house1_count >= 30 and housex1 == 250000:
         if housex1 >= 250001:
             update_all()
         else:
-            upgrade1_6 = pygame.Rect(337, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade1_6 = pygame.Rect(387, 11, BUTTON_WIDTH, BUTTON_HEIGHT)
     ########################
     if house2_count >= 5:
         if housex2 >= 5:
             update_all()
         else:
-            upgrade2_1 = pygame.Rect(337, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade2_1 = pygame.Rect(387, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house2_count >= 10 and housex2 == 50:
         if housex2 >= 51:
             update_all()
         else:
-            upgrade2_2 = pygame.Rect(337, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade2_2 = pygame.Rect(387, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house2_count >= 15 and housex2 == 500:
         if housex2 >= 501:
             update_all()
         else:
-            upgrade2_3 = pygame.Rect(337, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade2_3 = pygame.Rect(387, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house2_count >= 20 and housex2 == 5000:
         if housex2 >= 5001:
             update_all()
         else:
-            upgrade2_4 = pygame.Rect(337, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade2_4 = pygame.Rect(387, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house2_count >= 25 and housex2 == 50000:
         if housex2 >= 50001:
             update_all()
         else:
-            upgrade2_5 = pygame.Rect(337, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade2_5 = pygame.Rect(387, 120, BUTTON_WIDTH, BUTTON_HEIGHT)
     ########################
     if house3_count >= 5:
         if housex3 >= 5:
             update_all()
         else:
-            upgrade3_1 = pygame.Rect(337, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade3_1 = pygame.Rect(387, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house3_count >= 10 and housex3 == 50:
         if housex3 >= 51:
             update_all()
         else:
-            upgrade3_2 = pygame.Rect(337, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade3_2 = pygame.Rect(387, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house3_count >= 15 and housex3 == 500:
         if housex3 >= 501:
             update_all()
         else:
-            upgrade3_3 = pygame.Rect(337, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade3_3 = pygame.Rect(387, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house3_count >= 20 and housex3 == 5000:
         if housex3 >= 5001:
             update_all()
         else:
-            upgrade3_4 = pygame.Rect(337, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade3_4 = pygame.Rect(387, 230, BUTTON_WIDTH, BUTTON_HEIGHT)
     ########################
     if house4_count >= 5:
         if housex4 >= 5:
             update_all()
         else:
-            upgrade4_1 = pygame.Rect(337, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade4_1 = pygame.Rect(387, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house4_count >= 10 and housex4 == 50:
         if housex4 >= 51:
             update_all()
         else:
-            upgrade4_2 = pygame.Rect(337, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade4_2 = pygame.Rect(387, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house4_count >= 15 and housex4 == 500:
         if housex4 >= 501:
             update_all()
         else:
-            upgrade4_3 = pygame.Rect(337, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade4_3 = pygame.Rect(387, 341, BUTTON_WIDTH, BUTTON_HEIGHT)
     ########################
     if house5_count >= 5:
         if housex5 >= 5:
             update_all()
         else:
-            upgrade5_1 = pygame.Rect(337, 450, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade5_1 = pygame.Rect(387, 450, BUTTON_WIDTH, BUTTON_HEIGHT)
     if house5_count >= 10 and housex5 == 50:
         if housex5 >= 51:
             update_all()
         else:
-            upgrade5_2 = pygame.Rect(337, 450, BUTTON_WIDTH, BUTTON_HEIGHT)
+            upgrade5_2 = pygame.Rect(387, 450, BUTTON_WIDTH, BUTTON_HEIGHT)
     ########################
     if sword_count == 0:
         screen.blit(sword1, sword)
@@ -409,16 +451,15 @@ def auto_click():
     elif sword_count >= 7:
         screen.blit(sword4, sword)
     Timer(1, auto_click).start()
-    print(housex1)
 
 def upgrade1():
     global house1_label2, house1_label_border2, house1_earnings, housex1
-    if housex1 == 250000:
-        house1_earnings *= 5
-        housex1 *= 5
+    if housex1 == 350000:
+        house1_earnings *= 7
+        housex1 *= 7
     if housex1 == 50000:
-        house1_earnings *= 5
-        housex1 *= 5
+        house1_earnings *= 7
+        housex1 *= 7
     if housex1 == 5000:
         house1_earnings *= 10
         housex1 *= 10
@@ -437,8 +478,8 @@ def upgrade1():
 def upgrade2():
     global house2_label2, house2_label_border2, house2_earnings, housex2
     if housex2 == 50000:
-        house2_earnings *= 5
-        housex2 *= 5
+        house2_earnings *= 7
+        housex2 *= 7
     if housex2 == 5000:
         house2_earnings *= 10
         housex2 *= 10
@@ -498,9 +539,9 @@ def upgrade5():
     update_all()
 
 def proverka_label():
-    global house1_label_border2, house1_label2, house1_label_border3, house1_label3, house2_label_border2, house2_label2, house2_label_border3, house2_label3, house3_label_border2
-    global house3_label2, house3_label_border3, house3_label3, house4_label_border2, house4_label2, house4_label_border3, house4_label3, house5_label_border2, house5_label2
-    global house5_label_border3, house5_label3
+    global house1_label_border2, house1_label2, house1_label_border3, house1_label3, house1_label_border5, house2_label2, house1_label_border6, house2_label3, house1_label_border8
+    global house3_label2, house1_label_border9, house3_label3, house1_label_border11, house4_label2, house1_label_border12, house4_label3, house1_label_border14, house5_label2
+    global house1_label_border15, house5_label3
     if house1_earnings >= 1000:
         house1_label_border2 = font.render(f"Сум. добыча: {house1_earnings / 1000:.1f}K", True, border_color)
         house1_label2 = font.render(f"Сум. добыча: {house1_earnings / 1000:.1f}K", True, (241, 221, 56))
@@ -526,100 +567,100 @@ def proverka_label():
         house1_label_border3 = font.render(f"Стоимость: {house1_curprice / 1000000000000:.2f}T", True, border_color)
         house1_label3 = font.render(f"Стоимость: {house1_curprice / 1000000000000:.2f}T", True, (241, 221, 56))
     if house2_earnings >= 1000:
-        house2_label_border2 = font.render(f"Сум. добыча: {house2_earnings / 1000:.1f}K", True, border_color)
+        house1_label_border5 = font.render(f"Сум. добыча: {house2_earnings / 1000:.1f}K", True, border_color)
         house2_label2 = font.render(f"Сум. добыча: {house2_earnings / 1000:.1f}K", True, (241, 221, 56))
     if house2_earnings >= 1000000:
-        house2_label_border2 = font.render(f"Сум. добыча: {house2_earnings / 1000000:.1f}M", True, border_color)
+        house1_label_border5 = font.render(f"Сум. добыча: {house2_earnings / 1000000:.1f}M", True, border_color)
         house2_label2 = font.render(f"Сум. добыча: {house2_earnings / 1000000:.1f}M", True, (241, 221, 56))
     if house2_earnings >= 1000000000:
-        house2_label_border2 = font.render(f"Сум. добыча: {house2_earnings / 1000000000:.1f}B", True, border_color)
+        house1_label_border5 = font.render(f"Сум. добыча: {house2_earnings / 1000000000:.1f}B", True, border_color)
         house2_label2 = font.render(f"Сум. добыча: {house2_earnings / 1000000000:.1f}B", True, (241, 221, 56))
     if house2_earnings >= 1000000000000:
-        house2_label_border2 = font.render(f"Сум. добыча: {house2_earnings / 1000000000000:.1f}T", True, border_color)
+        house1_label_border5 = font.render(f"Сум. добыча: {house2_earnings / 1000000000000:.1f}T", True, border_color)
         house2_label2 = font.render(f"Сум. добыча: {house2_earnings / 1000000000000:.1f}T", True, (241, 221, 56))
     if house2_curprice >= 1000:
-        house2_label_border3 = font.render(f"Стоимость: {house2_curprice / 1000:.2f}K", True, border_color)
+        house1_label_border6 = font.render(f"Стоимость: {house2_curprice / 1000:.2f}K", True, border_color)
         house2_label3 = font.render(f"Стоимость: {house2_curprice / 1000:.2f}K", True, (241, 221, 56))
     if house2_curprice >= 1000000:
-        house2_label_border3 = font.render(f"Стоимость: {house2_curprice / 1000000:.2f}M", True, border_color)
+        house1_label_border6 = font.render(f"Стоимость: {house2_curprice / 1000000:.2f}M", True, border_color)
         house2_label3 = font.render(f"Стоимость: {house2_curprice / 1000000:.2f}M", True, (241, 221, 56))
     if house2_curprice >= 1000000000:
-        house2_label_border3 = font.render(f"Стоимость: {house2_curprice / 1000000000:.2f}B", True, border_color)
+        house1_label_border6 = font.render(f"Стоимость: {house2_curprice / 1000000000:.2f}B", True, border_color)
         house2_label3 = font.render(f"Стоимость: {house2_curprice / 1000000000:.2f}B", True, (241, 221, 56))
     if house2_curprice >= 1000000000000:
-        house2_label_border3 = font.render(f"Стоимость: {house2_curprice / 1000000000000:.2f}T", True, border_color)
+        house1_label_border6 = font.render(f"Стоимость: {house2_curprice / 1000000000000:.2f}T", True, border_color)
         house2_label3 = font.render(f"Стоимость: {house2_curprice / 1000000000000:.2f}T", True, (241, 221, 56))
     if house3_earnings >= 1000:
-        house3_label_border2 = font.render(f"Сум. добыча: {house3_earnings / 1000:.1f}K", True, border_color)
+        house1_label_border8 = font.render(f"Сум. добыча: {house3_earnings / 1000:.1f}K", True, border_color)
         house3_label2 = font.render(f"Сум. добыча: {house3_earnings / 1000:.1f}K", True, (241, 221, 56))
     if house3_earnings >= 1000000:
-        house3_label_border2 = font.render(f"Сум. добыча: {house3_earnings / 1000000:.1f}M", True, border_color)
+        house1_label_border8 = font.render(f"Сум. добыча: {house3_earnings / 1000000:.1f}M", True, border_color)
         house3_label2 = font.render(f"Сум. добыча: {house3_earnings / 1000000:.1f}M", True, (241, 221, 56))
     if house3_earnings >= 1000000000:
-        house3_label_border2 = font.render(f"Сум. добыча: {house3_earnings / 1000000000:.1f}B", True, border_color)
+        house1_label_border8 = font.render(f"Сум. добыча: {house3_earnings / 1000000000:.1f}B", True, border_color)
         house3_label2 = font.render(f"Сум. добыча: {house3_earnings / 1000000000:.1f}B", True, (241, 221, 56))
     if house3_earnings >= 1000000000000:
-        house3_label_border2 = font.render(f"Сум. добыча: {house3_earnings / 1000000000000:.1f}T", True, border_color)
+        house1_label_border8 = font.render(f"Сум. добыча: {house3_earnings / 1000000000000:.1f}T", True, border_color)
         house3_label2 = font.render(f"Сум. добыча: {house3_earnings / 1000000000000:.1f}T", True, (241, 221, 56))
     if house3_curprice >= 1000:
-        house3_label_border3 = font.render(f"Стоимость: {house3_curprice / 1000:.2f}K", True, border_color)
+        house1_label_border9 = font.render(f"Стоимость: {house3_curprice / 1000:.2f}K", True, border_color)
         house3_label3 = font.render(f"Стоимость: {house3_curprice / 1000:.2f}K", True, (241, 221, 56))
     if house3_curprice >= 1000000:
-        house3_label_border3 = font.render(f"Стоимость: {house3_curprice / 1000000:.2f}M", True, border_color)
+        house1_label_border9 = font.render(f"Стоимость: {house3_curprice / 1000000:.2f}M", True, border_color)
         house3_label3 = font.render(f"Стоимость: {house3_curprice / 1000000:.2f}M", True, (241, 221, 56))
     if house3_curprice >= 1000000000:
-        house3_label_border3 = font.render(f"Стоимость: {house3_curprice / 1000000000:.2f}B", True, border_color)
+        house1_label_border9 = font.render(f"Стоимость: {house3_curprice / 1000000000:.2f}B", True, border_color)
         house3_label3 = font.render(f"Стоимость: {house3_curprice / 1000000000:.2f}B", True, (241, 221, 56))
     if house3_curprice >= 1000000000000:
-        house3_label_border3 = font.render(f"Стоимость: {house3_curprice / 1000000000000:.2f}T", True, border_color)
+        house1_label_border9 = font.render(f"Стоимость: {house3_curprice / 1000000000000:.2f}T", True, border_color)
         house3_label3 = font.render(f"Стоимость: {house3_curprice / 1000000000000:.2f}T", True, (241, 221, 56))
     if house4_earnings >= 1000:
-        house4_label_border2 = font.render(f"Сум. добыча: {house4_earnings / 1000:.1f}K", True, border_color)
+        house1_label_border11 = font.render(f"Сум. добыча: {house4_earnings / 1000:.1f}K", True, border_color)
         house4_label2 = font.render(f"Сум. добыча: {house4_earnings / 1000:.1f}K", True, (241, 221, 56))
     if house4_earnings >= 1000000:
-        house4_label_border2 = font.render(f"Сум. добыча: {house4_earnings / 1000000:.1f}M", True, border_color)
+        house1_label_border11 = font.render(f"Сум. добыча: {house4_earnings / 1000000:.1f}M", True, border_color)
         house4_label2 = font.render(f"Сум. добыча: {house4_earnings / 1000000:.1f}M", True, (241, 221, 56))
     if house4_earnings >= 1000000000:
-        house4_label_border2 = font.render(f"Сум. добыча: {house4_earnings / 1000000000:.1f}B", True, border_color)
+        house1_label_border11 = font.render(f"Сум. добыча: {house4_earnings / 1000000000:.1f}B", True, border_color)
         house4_label2 = font.render(f"Сум. добыча: {house4_earnings / 1000000000:.1f}B", True, (241, 221, 56))
     if house4_earnings >= 1000000000000:
-        house4_label_border2 = font.render(f"Сум. добыча: {house4_earnings / 1000000000000:.1f}T", True, border_color)
+        house1_label_border11 = font.render(f"Сум. добыча: {house4_earnings / 1000000000000:.1f}T", True, border_color)
         house4_label2 = font.render(f"Сум. добыча: {house4_earnings / 1000000000000:.1f}T", True, (241, 221, 56))
     if house4_curprice >= 1000:
-        house4_label_border3 = font.render(f"Стоимость: {house4_curprice / 1000:.2f}K", True, border_color)
+        house1_label_border12 = font.render(f"Стоимость: {house4_curprice / 1000:.2f}K", True, border_color)
         house4_label3 = font.render(f"Стоимость: {house4_curprice / 1000:.2f}K", True, (241, 221, 56))
     if house4_curprice >= 1000000:
-        house4_label_border3 = font.render(f"Стоимость: {house4_curprice / 1000000:.2f}M", True, border_color)
+        house1_label_border12 = font.render(f"Стоимость: {house4_curprice / 1000000:.2f}M", True, border_color)
         house4_label3 = font.render(f"Стоимость: {house4_curprice / 1000000:.2f}M", True, (241, 221, 56))
     if house4_curprice >= 1000000000:
-        house4_label_border3 = font.render(f"Стоимость: {house4_curprice / 1000000000:.2f}B", True, border_color)
+        house1_label_border12 = font.render(f"Стоимость: {house4_curprice / 1000000000:.2f}B", True, border_color)
         house4_label3 = font.render(f"Стоимость: {house4_curprice / 1000000000:.2f}B", True, (241, 221, 56))
     if house4_curprice >= 1000000000000:
-        house4_label_border3 = font.render(f"Стоимость: {house4_curprice / 1000000000000:.2f}T", True, border_color)
+        house1_label_border12 = font.render(f"Стоимость: {house4_curprice / 1000000000000:.2f}T", True, border_color)
         house4_label3 = font.render(f"Стоимость: {house4_curprice / 1000000000000:.2f}T", True, (241, 221, 56))
     if house5_earnings >= 1000:
-        house5_label_border2 = font.render(f"Сум. добыча: {house5_earnings / 1000:.1f}K", True, border_color)
+        house1_label_border14 = font.render(f"Сум. добыча: {house5_earnings / 1000:.1f}K", True, border_color)
         house5_label2 = font.render(f"Сум. добыча: {house5_earnings / 1000:.1f}K", True, (241, 221, 56))
     if house5_earnings >= 1000000:
-        house5_label_border2 = font.render(f"Сум. добыча: {house5_earnings / 1000000:.1f}M", True, border_color)
+        house1_label_border14 = font.render(f"Сум. добыча: {house5_earnings / 1000000:.1f}M", True, border_color)
         house5_label2 = font.render(f"Сум. добыча: {house5_earnings / 1000000:.1f}M", True, (241, 221, 56))
     if house5_earnings >= 1000000000:
-        house5_label_border2 = font.render(f"Сум. добыча: {house5_earnings / 1000000000:.1f}B", True, border_color)
+        house1_label_border14 = font.render(f"Сум. добыча: {house5_earnings / 1000000000:.1f}B", True, border_color)
         house5_label2 = font.render(f"Сум. добыча: {house5_earnings / 1000000000:.1f}B", True, (241, 221, 56))
     if house5_earnings >= 1000000000000:
-        house5_label_border2 = font.render(f"Сум. добыча: {house5_earnings / 1000000000000:.1f}T", True, border_color)
+        house1_label_border14 = font.render(f"Сум. добыча: {house5_earnings / 1000000000000:.1f}T", True, border_color)
         house5_label2 = font.render(f"Сум. добыча: {house5_earnings / 1000000000000:.1f}T", True, (241, 221, 56))
     if house5_curprice >= 1000:
-        house5_label_border3 = font.render(f"Стоимость: {house5_curprice / 1000:.2f}K", True, border_color)
+        house1_label_border15 = font.render(f"Стоимость: {house5_curprice / 1000:.2f}K", True, border_color)
         house5_label3 = font.render(f"Стоимость: {house5_curprice / 1000:.2f}K", True, (241, 221, 56))
     if house5_curprice >= 1000000:
-        house5_label_border3 = font.render(f"Стоимость: {house5_curprice / 1000000:.2f}M", True, border_color)
+        house1_label_border15 = font.render(f"Стоимость: {house5_curprice / 1000000:.2f}M", True, border_color)
         house5_label3 = font.render(f"Стоимость: {house5_curprice / 1000000:.2f}M", True, (241, 221, 56))
     if house5_curprice >= 1000000000:
-        house5_label_border3 = font.render(f"Стоимость: {house5_curprice / 1000000000:.2f}B", True, border_color)
+        house1_label_border15 = font.render(f"Стоимость: {house5_curprice / 1000000000:.2f}B", True, border_color)
         house5_label3 = font.render(f"Стоимость: {house5_curprice / 1000000000:.2f}B", True, (241, 221, 56))
     if house5_curprice >= 1000000000000:
-        house5_label_border3 = font.render(f"Стоимость: {house5_curprice / 1000000000000:.2f}T", True, border_color)
+        house1_label_border15 = font.render(f"Стоимость: {house5_curprice / 1000000000000:.2f}T", True, border_color)
         house5_label3 = font.render(f"Стоимость: {house5_curprice / 1000000000000:.2f}T", True, (241, 221, 56))
 
 auto_click()
@@ -677,9 +718,9 @@ while running:
                     house2_earnings += 14 * housex2
                     house2_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
-                    house2_label_border1 = font.render(f"Кол-во: {house2_count}", True, border_color)
-                    house2_label_border2 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, border_color)
-                    house2_label_border3 = font.render(f"Стоимость: {house2_curprice:.0f}", True, border_color)
+                    house1_label_border4 = font.render(f"Кол-во: {house2_count}", True, border_color)
+                    house1_label_border5 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, border_color)
+                    house1_label_border6 = font.render(f"Стоимость: {house2_curprice:.0f}", True, border_color)
                     house2_label1 = font.render(f"Кол-во: {house2_count}", True, (241, 221, 56))
                     house2_label2 = font.render(f"Сум. добыча: {house2_earnings:.1f}", True, (241, 221, 56))
                     house2_label3 = font.render(f"Стоимость: {house2_curprice:.0f}", True, (241, 221, 56))
@@ -700,9 +741,9 @@ while running:
                     house3_earnings += 196 * housex3
                     house3_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
-                    house3_label_border1 = font.render(f"Кол-во: {house3_count}", True, border_color)
-                    house3_label_border2 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, border_color)
-                    house3_label_border3 = font.render(f"Стоимость: {house3_curprice:.0f}", True, border_color)
+                    house1_label_border7 = font.render(f"Кол-во: {house3_count}", True, border_color)
+                    house1_label_border8 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, border_color)
+                    house1_label_border9 = font.render(f"Стоимость: {house3_curprice:.0f}", True, border_color)
                     house3_label1 = font.render(f"Кол-во: {house3_count}", True, (241, 221, 56))
                     house3_label2 = font.render(f"Сум. добыча: {house3_earnings:.1f}", True, (241, 221, 56))
                     house3_label3 = font.render(f"Стоимость: {house3_curprice:.0f}", True, (241, 221, 56))
@@ -723,9 +764,9 @@ while running:
                     house4_earnings += 3200 * housex4
                     house4_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
-                    house4_label_border1 = font.render(f"Кол-во: {house4_count}", True, border_color)
-                    house4_label_border2 = font.render(f"Сум. добыча: {house4_earnings}", True, border_color)
-                    house4_label_border3 = font.render(f"Стоимость: {house4_curprice}", True, border_color)
+                    house1_label_border10 = font.render(f"Кол-во: {house4_count}", True, border_color)
+                    house1_label_border11 = font.render(f"Сум. добыча: {house4_earnings}", True, border_color)
+                    house1_label_border12 = font.render(f"Стоимость: {house4_curprice}", True, border_color)
                     house4_label1 = font.render(f"Кол-во: {house4_count}", True, (241, 221, 56))
                     house4_label2 = font.render(f"Сум. добыча: {house4_earnings}", True, (241, 221, 56))
                     house4_label3 = font.render(f"Стоимость: {house4_curprice}", True, (241, 221, 56))
@@ -746,9 +787,9 @@ while running:
                     house5_earnings += 190000 * housex5
                     house5_curprice *= 2
                     screen.blit(farm_bg, (0, 0))
-                    house5_label_border1 = font.render(f"Кол-во: {house5_count}", True, border_color)
-                    house5_label_border2 = font.render(f"Сум. добыча: {house5_earnings}", True, border_color)
-                    house5_label_border3 = font.render(f"Стоимость: {house5_curprice}", True, border_color)
+                    house1_label_border13 = font.render(f"Кол-во: {house5_count}", True, border_color)
+                    house1_label_border14 = font.render(f"Сум. добыча: {house5_earnings}", True, border_color)
+                    house1_label_border15 = font.render(f"Стоимость: {house5_curprice}", True, border_color)
                     house5_label1 = font.render(f"Кол-во: {house5_count}", True, (241, 221, 56))
                     house5_label2 = font.render(f"Сум. добыча: {house5_earnings}", True, (241, 221, 56))
                     house5_label3 = font.render(f"Стоимость: {house5_curprice}", True, (241, 221, 56))
@@ -826,8 +867,8 @@ while running:
                     upgrade1_3 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
             elif upgrade1_4.collidepoint(event.pos):
-                if money >= 3200000 and housex1 == 5000:
-                    money -= 3200000
+                if money >= 32000000 and housex1 == 5000:
+                    money -= 32000000
                     upgrade1()
                     upgrade1_4 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
@@ -838,7 +879,7 @@ while running:
                     upgrade1_5 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
             elif upgrade1_6.collidepoint(event.pos):
-                if money >= 32000000000 and housex1 == 250000:
+                if money >= 32000000000 and housex1 == 350000:
                     money -= 32000000000
                     upgrade1()
                     upgrade1_6 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
@@ -882,8 +923,8 @@ while running:
                     upgrade3_1 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
             elif upgrade3_2.collidepoint(event.pos):
-                if money >= 12288000 and housex3 == 50:
-                    money -= 12288000
+                if money >= 12200000 and housex3 == 50:
+                    money -= 12200000
                     upgrade3()
                     upgrade3_2 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
@@ -907,8 +948,8 @@ while running:
                     upgrade4_1 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
             elif upgrade4_2.collidepoint(event.pos):
-                if money >= 245760000 and housex4 == 50:
-                    money -= 245760000
+                if money >= 246000000 and housex4 == 50:
+                    money -= 246000000
                     upgrade4()
                     upgrade4_2 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
@@ -926,8 +967,8 @@ while running:
                     upgrade5_1 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
             elif upgrade5_2.collidepoint(event.pos):
-                if money >= 61440000000 and housex5 == 50:
-                    money -= 61440000000
+                if money >= 62000000000 and housex5 == 50:
+                    money -= 62000000000
                     upgrade5()
                     upgrade5_2 = pygame.Rect(8, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
                     proverka_label()
