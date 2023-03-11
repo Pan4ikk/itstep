@@ -15,6 +15,9 @@ bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
 screen.blit(bg, (0, 0))
 pygame.display.set_icon(pygame.image.load("icon.png"))
 
+pygame.mixer.music.load("1.mp3")
+pygame.mixer.music.play(1)
+
 money = 0
 house1_count = 1
 house1_earnings = 1
@@ -45,7 +48,9 @@ housex5 = 1
 BUTTON_WIDTH = 100
 BUTTON_HEIGHT = 100
 
-
+flPause = False
+vol = 0.3
+pygame.mixer.music.set_volume(vol)
 coin_bg = pygame.image.load("bg_coin.png")
 farm_bg = pygame.image.load("bg_farm.png")
 image1 = pygame.image.load("farm (2).png")
@@ -145,15 +150,25 @@ sword_label3 = font.render(f"Стоимость: {sword_curprice:}", True, (241,
 ###################################################################################################
 upgrade1_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade1_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade1_3 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade1_4 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade1_5 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade1_6 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 
 upgrade2_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade2_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade2_3 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade2_4 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade2_5 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 
 upgrade3_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade3_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade3_3 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade3_4 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 
 upgrade4_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade4_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
+upgrade4_3 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 
 upgrade5_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade5_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
@@ -333,7 +348,6 @@ def auto_click():
     elif sword_count >= 7:
         screen.blit(sword4, sword)
     Timer(1, auto_click).start()
-    print(housex1)
 
 def upgrade1():
     global house1_label2, house1_label_border2, house1_earnings, housex1
@@ -397,6 +411,21 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                flPause = not flPause
+                if flPause:
+                    pygame.mixer.music.pause()
+                else:
+                    pygame.mixer.music.unpause()
+            elif event.key == pygame.K_LEFT:
+                vol -= 0.1
+                pygame.mixer.music.set_volume(vol)
+                print(pygame.mixer.music.get_volume())
+            elif event.key == pygame.K_RIGHT:
+                vol += 0.1
+                pygame.mixer.music.set_volume(vol)
+                print(pygame.mixer.music.get_volume())
         elif event.type == pygame .MOUSEBUTTONDOWN and event.button == 1:
             ##################
             ### КНОПКИ 1-5 ###
