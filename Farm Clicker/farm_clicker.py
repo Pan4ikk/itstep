@@ -18,7 +18,7 @@ pygame.display.set_icon(pygame.image.load("icon.png"))
 pygame.mixer.music.load("1.mp3")
 pygame.mixer.music.play(-1)
 
-money = 999999999995
+money = 0
 house1_count = 1
 house1_earnings = 1
 house1_curprice = 5
