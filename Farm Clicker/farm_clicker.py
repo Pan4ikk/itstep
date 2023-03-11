@@ -15,7 +15,7 @@ bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
 screen.blit(bg, (0, 0))
 pygame.display.set_icon(pygame.image.load("icon.png"))
 
-money = 9999999999999
+money = 0
 house1_count = 1
 house1_earnings = 1
 house1_curprice = 5
