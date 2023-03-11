@@ -295,6 +295,7 @@ def auto_click():
     global sword_label1, sword_label2, sword_label3, farm_bg, money, housex1, upgrade1_2, upgrade1_1, sword, sword_count, swordx, sword_label_border1, sword_label_border2, text
     global sword_label_border3, house2_count, house3_count, house3_count, house3_count, upgrade2_1, upgrade3_1, upgrade4_1, upgrade5_1, upgrade2_2, upgrade3_2, upgrade4_2, upgrade5_2
     global upgrade1_3, upgrade1_4, upgrade1_5, upgrade1_6, upgrade2_3, upgrade2_4, upgrade2_5, upgrade3_3, upgrade3_4, upgrade4_3, secret_button
+    screen.blit(farm_bg, (0, 0))
     money += house1_earnings+house2_earnings+house3_earnings+house4_earnings+house5_earnings
     text = font.render(str(money), True, (241, 221, 56))
     if money >= 1000:
