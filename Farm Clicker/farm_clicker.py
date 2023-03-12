@@ -17,7 +17,7 @@ pygame.display.set_icon(pygame.image.load("icon.png"))
 pygame.mixer.music.load("1.mp3")
 pygame.mixer.music.play(-1)
 
-money = 123123123123123123
+money = 0
 house1_count = 1
 house1_earnings = 1
 house1_curprice = 5
@@ -41,15 +41,15 @@ max_mob_hp = 100
 mob_count = 1
 
 mob_reward1 = 50
-mob_reward2 = 2000
-mob_reward3 = 80000
-mob_reward4 = 3200000
-mob_reward5 = 128000000
-mob_reward6 = 5120000000
-mob_reward7 = 204800000000
-mob_reward8 = 8192000000000
-mob_reward9 = 327680000000000
-mob_reward10 = 15000000000000000
+mob_reward2 = 250
+mob_reward3 = 1750
+mob_reward4 = 17000
+mob_reward5 = 203000
+mob_reward6 = 2900000
+mob_reward7 = 49000000
+mob_reward8 = 950000000
+mob_reward9 = 20000000000
+mob_reward10 = 500000000000
 
 mob_hp = max_mob_hp
 
@@ -78,7 +78,6 @@ sword2 = pygame.image.load("sword2.png")
 sword3 = pygame.image.load("sword3.png")
 sword4 = pygame.image.load("sword4.png")
 coin_image = pygame.image.load("coin.png")
-upgrade_icon = pygame.image.load("upgrade_icon.png")
 upgrade1_1_image = pygame.image.load("upgrade1_1.png")
 upgrade1_2_image = pygame.image.load("upgrade1_2.png")
 upgrade1_3_image = pygame.image.load("upgrade1_3.png")
@@ -132,7 +131,6 @@ sword1 = pygame.transform.scale(sword1, (BUTTON_WIDTH, BUTTON_HEIGHT))
 sword2 = pygame.transform.scale(sword2, (BUTTON_WIDTH, BUTTON_HEIGHT))
 sword3 = pygame.transform.scale(sword3, (BUTTON_WIDTH, BUTTON_HEIGHT))
 sword4 = pygame.transform.scale(sword4, (BUTTON_WIDTH, BUTTON_HEIGHT))
-upgrade_icon = pygame.transform.scale(upgrade_icon, (BUTTON_WIDTH, BUTTON_HEIGHT))
 upgrade1_1_image = pygame.transform.scale(upgrade1_1_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
 upgrade1_2_image = pygame.transform.scale(upgrade1_2_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
 upgrade1_3_image = pygame.transform.scale(upgrade1_3_image, (BUTTON_WIDTH, BUTTON_HEIGHT))
@@ -276,7 +274,22 @@ def update_all():
     screen.blit(image3, button_rect3)
     screen.blit(image4, button_rect4)
     screen.blit(image5, button_rect5)
-    screen.blit(upgrade_icon, sword)
+    if sword_count == 0:
+        screen.blit(sword1, sword)
+    elif sword_count == 1:
+        screen.blit(sword1, sword)
+    elif sword_count == 2:
+        screen.blit(sword2, sword)
+    elif sword_count == 3:
+        screen.blit(sword2, sword)
+    elif sword_count == 4:
+        screen.blit(sword3, sword)
+    elif sword_count == 5:
+        screen.blit(sword3, sword)
+    elif sword_count == 6:
+        screen.blit(sword4, sword)
+    elif sword_count >= 7:
+        screen.blit(sword4, sword)
     screen.blit(upgrade1_1_image, upgrade1_1)
     screen.blit(upgrade1_2_image, upgrade1_2)
     screen.blit(upgrade1_3_image, upgrade1_3)
@@ -297,7 +310,6 @@ def update_all():
     screen.blit(upgrade4_3_image, upgrade4_3)
     screen.blit(upgrade5_1_image, upgrade5_1)
     screen.blit(upgrade5_2_image, upgrade5_2)
-    screen.blit(ending, ending1)
     screen.blit(coin_bg, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(coin_image, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(text, (SCREEN_WIDTH // 1.6 + 60, 26))
@@ -334,6 +346,7 @@ def update_all():
     screen.blit(mob_hp_label, (790, 580))
     update_mob()
     screen.blit(end_button, secret_button)
+    screen.blit(ending, ending1)
 def auto_click():
     global sword_label1, sword_label2, sword_label3, farm_bg, money, housex1, upgrade1_2, upgrade1_1, sword, sword_count, swordx, sword_label_border1, sword_label_border2, text
     global sword_label_border3, house2_count, house3_count, house3_count, house3_count, upgrade2_1, upgrade3_1, upgrade4_1, upgrade5_1, upgrade2_2, upgrade3_2, upgrade4_2, upgrade5_2
@@ -491,22 +504,6 @@ def auto_click():
         else:
             upgrade5_2 = pygame.Rect(387, 450, BUTTON_WIDTH, BUTTON_HEIGHT)
     ########################
-    if sword_count == 0:
-        screen.blit(sword1, sword)
-    elif sword_count == 1:
-        screen.blit(sword1, sword)
-    elif sword_count == 2:
-        screen.blit(sword2, sword)
-    elif sword_count == 3:
-        screen.blit(sword2, sword)
-    elif sword_count == 4:
-        screen.blit(sword3, sword)
-    elif sword_count == 5:
-        screen.blit(sword3, sword)
-    elif sword_count == 6:
-        screen.blit(sword4, sword)
-    elif sword_count >= 7:
-        screen.blit(sword4, sword)
     if mob_count == 2:
         mob_check = mob2
         money += mob_reward1
@@ -547,12 +544,10 @@ def auto_click():
         mob_check = prozrachka
         money += mob_reward10
         mob_reward10 = 0
-
     if mob_count < 11:
         secret_button = pygame.Rect(800, 2312, BUTTON_WIDTH, BUTTON_HEIGHT)
     if mob_count >= 11:
         secret_button = pygame.Rect(815, 250, BUTTON_WIDTH, BUTTON_HEIGHT)
-    print (mob_count)
     screen.blit(ending, ending1)
     proverka_label()
     Timer(1, auto_click).start()
@@ -805,7 +800,6 @@ while running:
             ##################
             ### КНОПКИ 1-5 ###
             if button_rect1.collidepoint(event.pos):
-                print("Кнопка 1 нажата!")
                 if money >= house1_curprice:
                     money -= house1_curprice
                     house1_count += 1
@@ -828,7 +822,6 @@ while running:
                     text = font.render(f"= {money:.2f}", True, (241, 221, 56))
                     update_all()
             elif button_rect2.collidepoint(event.pos):
-                print("Кнопка 2 нажата!")
                 if money >= house2_curprice:
                     money -= house2_curprice
                     house2_count += 1
@@ -851,7 +844,6 @@ while running:
                     text = font.render(f"= {money:.2f}", True, (241, 221, 56))
                     update_all()
             elif button_rect3.collidepoint(event.pos):
-                print("Кнопка 3 нажата!")
                 if money >= house3_curprice:
                     money -= house3_curprice
                     house3_count += 1
@@ -874,7 +866,6 @@ while running:
                     text = font.render(f"= {money:.2f}", True, (241, 221, 56))
                     update_all()
             elif button_rect4.collidepoint(event.pos):
-                print("Кнопка 4 нажата!")
                 if money >= house4_curprice:
                     money -= house4_curprice
                     house4_count += 1
@@ -897,7 +888,6 @@ while running:
                     text = font.render(f"= {money:.2f}", True, (241, 221, 56))
                     update_all()
             elif button_rect5.collidepoint(event.pos):
-                print("Кнопка 5 нажата!")
                 if money >= house5_curprice:
                     money -= house5_curprice
                     house5_count += 1
@@ -1130,9 +1120,8 @@ while running:
             #############################################################
             ### КПОПКА КОНЦОВКИ ###
             elif secret_button.collidepoint(event.pos):
-                if money >= 1000000000000:
-                    money -= 99999999999999999999999 * 999999
-                    ending1 = pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
+                ending1 = pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
+                money -= (99999999999999999999 * 9999999999)
 
 
     pygame.display.update()
