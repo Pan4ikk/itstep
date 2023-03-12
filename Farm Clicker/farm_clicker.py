@@ -14,11 +14,10 @@ bg = pygame.image.load("bg.jpg")
 bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
 screen.blit(bg, (0, 0))
 pygame.display.set_icon(pygame.image.load("icon.png"))
-
 pygame.mixer.music.load("1.mp3")
 pygame.mixer.music.play(-1)
 
-money = 0
+money = 123123123123123123
 house1_count = 1
 house1_earnings = 1
 house1_curprice = 5
@@ -37,6 +36,22 @@ house5_curprice = 1000000
 sword_count = 0
 sword_click = 1
 sword_curprice = 1000
+mob_hp = 0
+max_mob_hp = 100
+mob_count = 1
+
+mob_reward1 = 50
+mob_reward2 = 2000
+mob_reward3 = 80000
+mob_reward4 = 3200000
+mob_reward5 = 128000000
+mob_reward6 = 5120000000
+mob_reward7 = 204800000000
+mob_reward8 = 8192000000000
+mob_reward9 = 327680000000000
+mob_reward10 = 15000000000000000
+
+mob_hp = max_mob_hp
 
 housex1 = 1
 housex2 = 1
@@ -84,10 +99,29 @@ upgrade4_2_image = pygame.image.load("upgrade4_2.png")
 upgrade4_3_image = pygame.image.load("upgrade4_3.png")
 upgrade5_1_image = pygame.image.load("upgrade5_1.png")
 upgrade5_2_image = pygame.image.load("upgrade5_2.png")
+hp_bar0 = pygame.image.load("hp_bar.png")
+hp_bar1 = pygame.image.load("hp_bar1.png")
+hp_bar2 = pygame.image.load("hp_bar2.png")
+hp_bar3 = pygame.image.load("hp_bar3.png")
+hp_bar4 = pygame.image.load("hp_bar4.png")
 ending = pygame.image.load("end.png")
 end_button = pygame.image.load("end_button.png")
+mob1 = pygame.image.load("mob1.png")
+mob2 = pygame.image.load("mob2.png")
+mob3 = pygame.image.load("mob3.png")
+mob4 = pygame.image.load("mob4.png")
+mob5 = pygame.image.load("mob5.png")
+mob6 = pygame.image.load("mob6.png")
+mob7 = pygame.image.load("mob7.png")
+mob8 = pygame.image.load("mob8.png")
+mob9 = pygame.image.load("mob9.png")
+mob10 = pygame.image.load("mob10.png")
+bg_mob = pygame.image.load("bg_mob.png")
+prozrachka = pygame.image.load("prozrachka.png")
+bg_mob = pygame.transform.scale(bg_mob, (650, 605))
 
-
+mob_check = mob1
+hp_bar_check = hp_bar0
 
 image1 = pygame.transform.scale(image1, (BUTTON_WIDTH, BUTTON_HEIGHT))
 image2 = pygame.transform.scale(image2, (BUTTON_WIDTH, BUTTON_HEIGHT))
@@ -128,6 +162,8 @@ coin_image = pygame.transform.scale(coin_image, (50, 50))
 coin_bg = pygame.transform.scale(coin_bg, (500, 50))
 
 screen.blit(farm_bg, (0, 0))
+screen.blit(hp_bar0, (760, 560))
+screen.blit(mob1, (660, 100))
 screen.blit(coin_bg, (SCREEN_WIDTH//1.6, 10))
 
 # Создание кнопки
@@ -145,7 +181,6 @@ border_size = 2
 #Настройка шрифта и текст монеток
 font = pygame.font.Font("PressStart2P-Regular.ttf", 11)
 text = font.render(str(money), True, (241, 221, 56))
-secret = font.render("1T-???", True, (241, 221, 56))
 
 
 #Тени для текста
@@ -196,6 +231,7 @@ sword_label1 = font.render(f"Уровень: {sword_count}", True, (241, 221, 56
 sword_label2 = font.render(f"Cум. клик: {sword_click:}", True, (241, 221, 56))
 sword_label3 = font.render(f"Стоимость: {sword_curprice:}", True, (241, 221, 56))
 ###################################################################################################
+mob_hp_label = font.render(f"{mob_hp}/{max_mob_hp}", True, (241, 221, 56))
 ###################################################################################################
 upgrade1_1 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 upgrade1_2 = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
@@ -226,8 +262,15 @@ secret_button = pygame.Rect(337, 1000, BUTTON_WIDTH, BUTTON_HEIGHT)
 ending1 = pygame.Rect(3637, 13000, SCREEN_WIDTH, SCREEN_HEIGHT)
 
 WHITE = (255, 255, 255)
-
+def update_mob():
+    global mob_hp_label, mob_hp, max_mob_hp
+    screen.blit(bg_mob, (550, 70))
+    screen.blit(mob_check, (660, 100))
+    screen.blit(hp_bar_check, (760, 560))
+    proverka_label()
+    screen.blit(mob_hp_label, (790, 580))
 def update_all():
+    global mob_hp_label
     screen.blit(image1, button_rect1)
     screen.blit(image2, button_rect2)
     screen.blit(image3, button_rect3)
@@ -254,12 +297,10 @@ def update_all():
     screen.blit(upgrade4_3_image, upgrade4_3)
     screen.blit(upgrade5_1_image, upgrade5_1)
     screen.blit(upgrade5_2_image, upgrade5_2)
-    screen.blit(end_button, secret_button)
     screen.blit(ending, ending1)
     screen.blit(coin_bg, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(coin_image, (SCREEN_WIDTH // 1.6, 10))
     screen.blit(text, (SCREEN_WIDTH // 1.6 + 60, 26))
-    screen.blit(secret, (SCREEN_WIDTH // 1.3 + 200, 26))
     screen.blit(house1_label_border1, (button_rect1.x + 129 - border_size, button_rect1.y + 14 - border_size))
     screen.blit(house1_label1, (button_rect1.x + 125, button_rect1.y + 10))
     screen.blit(house1_label_border2, (button_rect1.x + 129 - border_size, button_rect1.y + 44 - border_size))
@@ -290,11 +331,14 @@ def update_all():
     screen.blit(house5_label2, (button_rect5.x + 125, button_rect5.y + 40))
     screen.blit(house1_label_border15, (button_rect5.x + 129 - border_size, button_rect5.y + 74 - border_size))
     screen.blit(house5_label3, (button_rect5.x + 125, button_rect5.y + 70))
-
+    screen.blit(mob_hp_label, (790, 580))
+    update_mob()
+    screen.blit(end_button, secret_button)
 def auto_click():
     global sword_label1, sword_label2, sword_label3, farm_bg, money, housex1, upgrade1_2, upgrade1_1, sword, sword_count, swordx, sword_label_border1, sword_label_border2, text
     global sword_label_border3, house2_count, house3_count, house3_count, house3_count, upgrade2_1, upgrade3_1, upgrade4_1, upgrade5_1, upgrade2_2, upgrade3_2, upgrade4_2, upgrade5_2
-    global upgrade1_3, upgrade1_4, upgrade1_5, upgrade1_6, upgrade2_3, upgrade2_4, upgrade2_5, upgrade3_3, upgrade3_4, upgrade4_3, secret_button
+    global upgrade1_3, upgrade1_4, upgrade1_5, upgrade1_6, upgrade2_3, upgrade2_4, upgrade2_5, upgrade3_3, upgrade3_4, upgrade4_3, secret_button, mob_count, hp_bar_check, mob_check
+    global mob_reward1, mob_reward2, mob_reward3, mob_reward4, mob_reward5, mob_reward6, mob_reward7, mob_reward8, mob_reward9, mob_reward10, end_button
     screen.blit(farm_bg, (0, 0))
     money += house1_earnings+house2_earnings+house3_earnings+house4_earnings+house5_earnings
     text = font.render(str(money), True, (241, 221, 56))
@@ -463,11 +507,54 @@ def auto_click():
         screen.blit(sword4, sword)
     elif sword_count >= 7:
         screen.blit(sword4, sword)
-    if money < 1000000000000:
+    if mob_count == 2:
+        mob_check = mob2
+        money += mob_reward1
+        mob_reward1 = 0
+    if mob_count == 3:
+        mob_check = mob3
+        money += mob_reward2
+        mob_reward2 = 0
+    if mob_count == 4:
+        mob_check = mob4
+        money += mob_reward3
+        mob_reward3 = 0
+    if mob_count == 5:
+        mob_check = mob5
+        money += mob_reward4
+        mob_reward4 = 0
+    if mob_count == 6:
+        mob_check = mob6
+        money += mob_reward5
+        mob_reward5 = 0
+    if mob_count == 7:
+        mob_check = mob7
+        money += mob_reward6
+        mob_reward6 = 0
+    if mob_count == 8:
+        mob_check = mob8
+        money += mob_reward7
+        mob_reward7 = 0
+    if mob_count == 9:
+        mob_check = mob9
+        money += mob_reward8
+        mob_reward8 = 0
+    if mob_count == 10:
+        mob_check = mob10
+        money += mob_reward9
+        mob_reward9 = 0
+    if mob_count == 11:
+        mob_check = prozrachka
+        money += mob_reward10
+        mob_reward10 = 0
+
+    if mob_count < 11:
         secret_button = pygame.Rect(800, 2312, BUTTON_WIDTH, BUTTON_HEIGHT)
-    if money >= 1000000000000:
-        secret_button = pygame.Rect(800, 280, BUTTON_WIDTH, BUTTON_HEIGHT)
+    if mob_count >= 11:
+        secret_button = pygame.Rect(815, 250, BUTTON_WIDTH, BUTTON_HEIGHT)
+    print (mob_count)
     screen.blit(ending, ending1)
+    proverka_label()
     Timer(1, auto_click).start()
 
 def upgrade1():
@@ -559,7 +646,7 @@ def upgrade5():
 def proverka_label():
     global house1_label_border2, house1_label2, house1_label_border3, house1_label3, house1_label_border5, house2_label2, house1_label_border6, house2_label3, house1_label_border8
     global house3_label2, house1_label_border9, house3_label3, house1_label_border11, house4_label2, house1_label_border12, house4_label3, house1_label_border14, house5_label2
-    global house1_label_border15, house5_label3
+    global house1_label_border15, house5_label3, mob_hp_label, mob_hp, max_mob_hp, mob_count
     if house1_earnings >= 1000:
         house1_label_border2 = font.render(f"Сум. добыча: {house1_earnings / 1000:.1f}K", True, border_color)
         house1_label2 = font.render(f"Сум. добыча: {house1_earnings / 1000:.1f}K", True, (241, 221, 56))
@@ -680,6 +767,18 @@ def proverka_label():
     if house5_curprice >= 1000000000000:
         house1_label_border15 = font.render(f"Стоимость: {house5_curprice / 1000000000000:.2f}T", True, border_color)
         house5_label3 = font.render(f"Стоимость: {house5_curprice / 1000000000000:.2f}T", True, (241, 221, 56))
+    if mob_hp < 1000:
+        mob_hp_label = font.render(f"{mob_hp:.0f}/{max_mob_hp:.0f}", True, (241, 221, 56))
+    if mob_hp >= 1000:
+        mob_hp_label = font.render(f"{mob_hp / 1000:.0f}K/{max_mob_hp / 1000:.0f}K", True, (241, 221, 56))
+    if mob_hp >= 1000000:
+        mob_hp_label = font.render(f"{mob_hp / 1000000:.0f}M/{max_mob_hp / 1000000:.0f}M", True, (241, 221, 56))
+    if mob_hp >= 1000000000:
+        mob_hp_label = font.render(f"{mob_hp / 1000000000:.0f}B/{max_mob_hp / 1000000000:.0f}B", True, (241, 221, 56))
+    if mob_hp == 1000000000000:
+        mob_hp_label = font.render(f"{mob_hp / 1000000000000:.0f}T/{max_mob_hp / 1000000000000:.0f}T", True, (241, 221, 56))
+    if mob_count >= 11:
+        mob_hp_label = font.render(f"???????????????", True, (241, 221, 56))
 
 auto_click()
 running = True
@@ -823,7 +922,13 @@ while running:
             ###################
             ### КНОПКА МЕЧА ###
             elif sword.collidepoint(event.pos):
+                update_mob()
+                proverka_label()
                 money += sword_click
+                if mob_count == 11:
+                    mob_hp = max_mob_hp
+                else:
+                    mob_hp -= sword_click
                 if money >= sword_curprice and sword_count == 0:
                     money -= sword_curprice
                     sword_click += 19
@@ -858,12 +963,44 @@ while running:
                     money -= sword_curprice
                     sword_click += 77500000
                     sword_count = 7
-                    sword_curprice = 100000000000
+                    sword_curprice = 200000000000
                 elif money >= sword_curprice and sword_count == 7:
                     money -= sword_curprice
                     sword_click += 914570000
                     sword_count = 8
                     sword_curprice *= (999999 * 999999)
+                ###############################################
+                if mob_hp < 0.8 * max_mob_hp:
+                    screen.blit(bg_mob, (550, 70))
+                    screen.blit(mob_check, (660, 100))
+                    hp_bar_check = hp_bar1
+                    screen.blit(hp_bar_check, (760, 560))
+                    proverka_label()
+                    screen.blit(mob_hp_label, (790, 580))
+                if mob_hp < 0.5 * max_mob_hp:
+                    screen.blit(bg_mob, (550, 70))
+                    screen.blit(mob_check, (660, 100))
+                    hp_bar_check = hp_bar2
+                    screen.blit(hp_bar_check, (760, 560))
+                    proverka_label()
+                    screen.blit(mob_hp_label, (790, 580))
+                if mob_hp < 0.3 * max_mob_hp:
+                    screen.blit(bg_mob, (550, 70))
+                    screen.blit(mob_check, (660, 100))
+                    hp_bar_check = hp_bar3
+                    screen.blit(hp_bar_check, (760, 560))
+                    proverka_label()
+                    screen.blit(mob_hp_label, (790, 580))
+                if mob_hp <= 0:
+                    screen.blit(bg_mob, (550, 70))
+                    mob_count += 1
+                    if mob_count >= 11:
+                        mob_hp_label = font.render(f"??????????????????", True, (241, 221, 56))
+                    else:
+                        max_mob_hp *= 2.4113 * mob_count
+                    mob_hp = max_mob_hp
+                    hp_bar_check = hp_bar0
+
             ############################
             ### КНОПКИ ПРОКАЧКИ ФЕРМ ###
             elif upgrade1_1.collidepoint(event.pos):
